@@ -1,0 +1,23 @@
+{
+    "Title": "Tezcatlipoca's",
+    "Route": {
+        "home": "Home",
+        "work": "Work",
+        "cv": "C.V.",
+        "contact": "Contact"
+    },
+    "Home": {
+        "welcome": "Welcome",
+        "intro": "Hello, thank you for visiting my website, my name is Benjamin, but online I call myself Tezcatlipoca. Web Development is my passion and making quality and beautiful websites my everyday goal.",
+        "customTitle": "Custom Web Development",
+        "customContent": "Order your custom made website today. Beautiful Design and a Powerful Tool to Improve your Bussiness",
+        "beautyTitle": "Beautiful Designes",
+        "beautyContent": "Tailored responsive designes with theme management.",
+        "powerTitle": "Powerful Tool",
+        "powerContent": "With SEO (Search Engine Optimization) and DB (Database) managment take your bussiness anywhere you want.",
+        "versTitle": "Versatile",
+        "versContent": "Bring your bussiness to everyone. Accessibility, responsiveness and internationalized content to get closer to all your potential customers.",
+        "detailTitle": "Detailed",
+        "detailContent": "With special attention to details that garanty a perfect result."
+    }
+}

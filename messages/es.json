@@ -1,0 +1,15 @@
+{
+    "Title": "Tezcatlipoca",
+    "Route": {
+        "home": "Inicio",
+        "work": "Trabajo",
+        "cv": "C.V.",
+        "contact": "Contacto"
+    },
+    "Home": {
+        "welcome": "Bienvenido",
+        "intro": "Hola, gracias por visitar mi sitio web, mi nombre es Benjamín, aunque en línea me hago llamar Tezcatlipoca. El desarrollo web es mi pasión y hacer sitios web de bellos y de calidad mi meta de todos los días.",
+        "customTitle": "Sitios Web Personalizados",
+        "customContent": "Ordena tu sitio web personalizado el día de hoy. Hermosos diseños y una poderosa herramienta para mejorar tu negocio."
+    }
+}

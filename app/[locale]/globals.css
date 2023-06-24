@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 234, 239, 240;
+  --background-end-rgb: 255, 255, 255;
+  --darkForeground-rgb: 255, 255, 255;
+  --darkBackground-start-rgb: 30, 30, 30;
+  --darkBackground-end-rgb: 30, 30, 30;
+}
+
+@layer components {
+  .lightBody {
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgb(var(--background-end-rgb))
+      )
+      rgb(var(--background-start-rgb));
+  }
+  
+  .darkBody {
+    color: rgb(var(--darkForeground-rgb));
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgb(var(--darkBackground-end-rgb))
+      )
+      rgb(var(--darkBackground-start-rgb));
+  }
+}
+
+@layer base {
+  body {
+    @apply w-screen lightBody dark:darkBody
+  }
+
+  .navBtn {
+    @apply inline-flex items-center h-fit px-8 py-2 text-xl rounded-lg border-l border-r border-black hover:border dark:border-white hover:bg-[rgb(255,255,255)] dark:hover:bg-[rgb(20,20,20)] cursor-pointer;
+  }
+
+  .activeBtn {
+    @apply inline-flex items-center h-fit px-8 py-2 text-xl rounded-lg border border-black dark:border-white bg-[rgb(255,255,255)] dark:bg-[rgb(20,20,20)] cursor-default;
+  }
+
+  .homeSection {
+    @apply flex h-52 w-full justify-center my-8
+  }
+}
