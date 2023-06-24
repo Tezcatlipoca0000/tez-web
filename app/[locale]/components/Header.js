@@ -44,7 +44,7 @@ export default function Header({ messages }) {
     }
 
     return (
-        <header className="w-full flex border">
+        <header className="flex">
             <div className="w-full p-4 flex justify-between">
 
                 {/* Title: */}

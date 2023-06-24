@@ -8,8 +8,16 @@
     },
     "Home": {
         "welcome": "Bienvenido",
-        "intro": "Hola, gracias por visitar mi sitio web, mi nombre es Benjamín, aunque en línea me hago llamar Tezcatlipoca. El desarrollo web es mi pasión y hacer sitios web de bellos y de calidad mi meta de todos los días.",
+        "intro": "Hola, gracias por visitar mi sitio web, mi nombre es Benjamín, aunque en línea me hago llamar Tezcatlipoca. El desarrollo web es mi pasión y hacer sitios web bellos y de calidad mi meta de todos los días.",
         "customTitle": "Sitios Web Personalizados",
-        "customContent": "Ordena tu sitio web personalizado el día de hoy. Hermosos diseños y una poderosa herramienta para mejorar tu negocio."
+        "customContent": "Ordena tu sitio web personalizado el día de hoy. Hermosos diseños y una poderosa herramienta para mejorar tu negocio.",
+        "beautyTitle": "Hermosos Diseños",
+        "beautyContent": "Diseños responsivos hechos a la medida con manejo de temas.",
+        "powerTitle": "Poderosa Herramienta",
+        "powerContent": "Con SEO (Optimización de los motores de búsqueda) y manejo de Base de Datos lleva tu negocio a donde tú quieras.",
+        "versTitle": "Versatil",
+        "versContent": "Accessibilidad, diseño responsivo e internacionalización acerca tu negocio a todos tus clientes poteciales.",
+        "detailTitle": "Detallado",
+        "detailContent": "Con especial atención a los detalles tienes la garantía de un resultado perfecto."
     }
 }

@@ -10,7 +10,7 @@ export default async function Home({params}) {
   return (
       <>
         <Header messages={dictionary} />
-        <main className='bg-inherit w-full p-4 border'>
+        <main className='bg-inherit flex flex-col justify-center items-center'>
 
           {/* Title */}
           <h1 className='text-center text-6xl my-4'>
@@ -18,77 +18,79 @@ export default async function Home({params}) {
           </h1>
 
           {/* Subtitle */}
-          <h2 className='text-center text-2xl my-8'>
+          <h2 className='text-center text-2xl my-8 w-11/12'>
             {dictionary.Home.intro}
           </h2>
+          
+          <div className='flex flex-col justify-center items-center w-11/12'>
+            {/* Section1 -- Custom */}
+            <div className='homeSection'>
+              <div className='homeSectionBlock'>
+                <h3 className='text-4xl'>
+                  {dictionary.Home.customTitle}
+                </h3>
+              </div>
+              <div className='homeSectionBlock'>
+                <p className='text-2xl p-4 text-center'>
+                  {dictionary.Home.customContent}
+                </p>
+              </div>
+            </div>
 
-          {/* Section1 -- Custom */}
-          <div className='flex h-52 w-full justify-center my-8'>
-            <div className='border flex w-1/3 justify-evenly items-center'>
-              <h3 className='text-4xl'>
-                {dictionary.Home.customTitle}
-              </h3>
+            {/* Section2 -- Beautiful */}
+            <div className='homeSection'>
+              <div className='homeSectionBlock'>
+                <p className='text-2xl p-4 text-center'>
+                  {dictionary.Home.beautyContent}
+                </p>
+              </div>
+              <div className='homeSectionBlock'>
+                <h3 className='text-4xl'>
+                  {dictionary.Home.beautyTitle}
+                </h3>
+              </div>
             </div>
-            <div className='border flex w-1/3 justify-evenly items-center'>
-              <p className='text-2xl p-4'>
-                {dictionary.Home.customContent}
-              </p>
-            </div>
-          </div>
 
-          {/* Section2 -- Beautiful */}
-          <div className='flex h-52 w-full justify-center my-8'>
-            <div className='border flex w-1/3 justify-evenly items-center'>
-              <p className='text-2xl p-4'>
-                {dictionary.Home.beautyContent}
-              </p>
+            {/* Section3 -- powerful */}
+            <div className='homeSection'>
+              <div className='homeSectionBlock'>
+                <h3 className='text-4xl'>
+                  {dictionary.Home.powerTitle}
+                </h3>
+              </div>
+              <div className='homeSectionBlock'>
+                <p className='text-2xl p-4 text-center'>
+                  {dictionary.Home.powerContent}
+                </p>
+              </div>
             </div>
-            <div className='border flex w-1/3 justify-evenly items-center'>
-              <h3 className='text-4xl'>
-                {dictionary.Home.beautyTitle}
-              </h3>
-            </div>
-          </div>
 
-          {/* Section3 -- powerful */}
-          <div className='flex h-52 w-full justify-center my-8'>
-            <div className='border flex w-1/3 justify-evenly items-center'>
-              <h3 className='text-4xl'>
-                {dictionary.Home.powerTitle}
-              </h3>
+            {/* Section4 -- versatile */}
+            <div className='homeSection'>
+              <div className='homeSectionBlock'>
+                <p className='text-2xl p-4 text-center'>
+                  {dictionary.Home.versContent}
+                </p>
+              </div>
+              <div className='homeSectionBlock'>
+                <h3 className='text-4xl'>
+                  {dictionary.Home.versTitle}
+                </h3>
+              </div>
             </div>
-            <div className='border flex w-1/3 justify-evenly items-center'>
-              <p className='text-2xl p-4'>
-                {dictionary.Home.powerContent}
-              </p>
-            </div>
-          </div>
 
-          {/* Section4 -- versatile */}
-          <div className='flex h-52 w-full justify-center my-8'>
-            <div className='border flex w-1/3 justify-evenly items-center'>
-              <p className='text-2xl p-4'>
-                {dictionary.Home.versContent}
-              </p>
-            </div>
-            <div className='border flex w-1/3 justify-evenly items-center'>
-              <h3 className='text-4xl'>
-                {dictionary.Home.versTitle}
-              </h3>
-            </div>
-          </div>
-
-          {/* Section5 -- detailed */}
-          <div className='flex h-52 w-full justify-center my-8'>
-            <div className='border flex w-1/3 justify-evenly items-center'>
-              <h3 className='text-4xl'>
-                {dictionary.Home.detailTitle}
-              </h3>
-            </div>
-            <div className='border flex w-1/3 justify-evenly items-center'>
-              <p className='text-2xl p-4'>
-                {dictionary.Home.detailContent}
-              </p>
+            {/* Section5 -- detailed */}
+            <div className='homeSection'>
+              <div className='homeSectionBlock'>
+                <h3 className='text-4xl'>
+                  {dictionary.Home.detailTitle}
+                </h3>
+              </div>
+              <div className='homeSectionBlock'>
+                <p className='text-2xl p-4 text-center'>
+                  {dictionary.Home.detailContent}
+                </p>
+              </div>
             </div>
           </div>
 

@@ -51,7 +51,7 @@ export default function RootLayout({ children, params }) {
       <head>
         <Script type='text/javascript' dangerouslySetInnerHTML={{__html: script}}/>
       </head>
-      <body className={`${alegreya.className} w-screen h-screen`}> 
+      <body className={`${alegreya.className}`}> 
         {children}
       </body>
     </html>

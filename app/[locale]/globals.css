@@ -35,7 +35,7 @@
 
 @layer base {
   body {
-    @apply w-screen lightBody dark:darkBody
+    @apply lightBody dark:darkBody flex flex-col items-center tracking-wider
   }
 
   .navBtn {
@@ -47,6 +47,10 @@
   }
 
   .homeSection {
-    @apply flex h-52 w-full justify-center my-8
+    @apply flex h-52 w-full my-8
+  }
+
+  .homeSectionBlock {
+    @apply border flex w-1/2 justify-center items-center
   }
 }
