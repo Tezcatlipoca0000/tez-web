@@ -107,3 +107,25 @@ Powerful --> SEO
 Versatile --> i18nt
 Detailed --> special attn
 */
+
+/*
+custom --> tailored for you
+light/dark mode --> automatic detection & toggle option
+responsive --> Beautiful design for both mobile & desktop
+internationalization --> get your message accross
+SEO --> Be visible
+Other features --> 
+    Self-Manageble --> Admin access to edit parts of the website without downtime
+    DB integration --> SQL, mongodb, json db
+    ecommerce integration 
+    google ads integration
+    google analytics integration
+    API integration
+Other Services --> 
+    Hosting
+    Domain Purchase
+    Copywrite
+    Image Licencing
+    Maintenance
+    Analytics report
+*/
