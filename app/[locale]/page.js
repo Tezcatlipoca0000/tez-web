@@ -24,7 +24,7 @@ export default async function Home({params}) {
             {dictionary.Home.intro}
           </h2>
 
-          <Features />
+          <Features dictionary={dictionary}/>
           <Services />
           
           <div className='flex flex-col justify-center items-center w-11/12'>

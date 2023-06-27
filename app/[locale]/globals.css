@@ -53,4 +53,12 @@
   .homeSectionBlock {
     @apply border flex w-1/2 justify-center items-center
   }
+
+  .featDesc {
+    @apply opacity-0
+  }
+
+  .featBtn:hover .featDesc {
+    @apply transition-opacity duration-500 ease-in opacity-100
+  }
 }

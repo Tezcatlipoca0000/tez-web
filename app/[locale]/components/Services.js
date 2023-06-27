@@ -1,5 +1,7 @@
 'use client';
 import { useState } from "react";
+import ArrowDown from "../icons/ArrowDown";
+import ArrowUp from "../icons/ArrowUp";
 
 export default function Services() {
     const [down, setDown] = useState(false);
@@ -11,7 +13,7 @@ export default function Services() {
     return (
         <div className="w-11/12 my-6">
             <button className="border rounded-lg w-full inline-flex justify-between text-2xl p-4" type="button" onClick={toggleServices}>
-                Features 
+                Services 
                 {down ? <ArrowDown /> : <ArrowUp />}
             </button>
             
