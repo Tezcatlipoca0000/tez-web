@@ -4,6 +4,7 @@ import Example from './components/Example';
 import Header from './components/Header';
 import { getDictionary } from '../../get-dictionary';
 import Features from './components/Features';
+import Services from './components/Services';
 
 
 export default async function Home({params}) {
@@ -24,6 +25,7 @@ export default async function Home({params}) {
           </h2>
 
           <Features />
+          <Services />
           
           <div className='flex flex-col justify-center items-center w-11/12'>
             {/* Section1 -- Custom */}
