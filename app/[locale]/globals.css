@@ -11,6 +11,15 @@
   --darkBackground-end-rgb: 30, 30, 30;
 }
 
+@keyframes bounceRight {
+  0%, 100% {
+    transform: none;
+ }
+ 50% {
+    transform: translateX(15px);
+ }
+}
+
 @layer components {
   .lightBody {
     color: rgb(var(--foreground-rgb));
@@ -54,8 +63,12 @@
     @apply border flex w-1/2 justify-center items-center
   }
 
+  .featBtn {
+    @apply w-full px-4 py-2 inline-flex items-center space-x-4 hover:transition-[padding] duration-500 ease-in-out hover:pl-10 hover:animate-[bounceRight_500ms_ease-in-out_1] text-2xl
+  }
+
   .featDesc {
-    @apply opacity-0
+    @apply opacity-0 text-xl
   }
 
   .featBtn:hover .featDesc {

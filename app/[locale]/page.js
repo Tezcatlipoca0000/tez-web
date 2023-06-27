@@ -1,6 +1,4 @@
-import Main from './Main';
 import Footer from './components/Footer';
-import Example from './components/Example';
 import Header from './components/Header';
 import { getDictionary } from '../../get-dictionary';
 import Features from './components/Features';
