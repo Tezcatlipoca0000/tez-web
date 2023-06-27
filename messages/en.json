@@ -8,16 +8,45 @@
     },
     "Home": {
         "welcome": "Welcome",
-        "intro": "Hello, thank you for visiting my website, my name is Benjamin, but online I call myself Tezcatlipoca. Web Development is my passion and making quality and beautiful websites my everyday goal.",
-        "customTitle": "Custom Web Development",
-        "customContent": "Order your custom made website today. Beautiful Design and a Powerful Tool to Improve your Bussiness",
-        "beautyTitle": "Beautiful Designes",
-        "beautyContent": "Tailored responsive designes with theme management.",
-        "powerTitle": "Powerful Tool",
-        "powerContent": "With SEO (Search Engine Optimization) and DB (Database) managment take your bussiness anywhere you want.",
-        "versTitle": "Versatile",
-        "versContent": "Bring your bussiness to everyone. Accessibility, responsiveness and internationalized content to get closer to all your potential customers.",
-        "detailTitle": "Detailed",
-        "detailContent": "With special attention to details that garanty a perfect result."
+        "intro": "",
+        "customTitle": "Custom Design",
+        "customContent": "Completely custom designes tailored for you and your bussiness",
+        "colorTitle": "Light & Dark Mode",
+        "colorContent": "Automatic preference detection based on browser settings and color toggle button",
+        "respTitle": "Responsive",
+        "respContent": "Designed to look good on any screen size",
+        "interTitle": "Internationalized",
+        "interContent": "Change the language of your site with a click and bring your message closer to all your potential customers",
+        "seoTitle": "SEO",
+        "seoContent": "With our Search Engine Optimization obtain the visibility you deserve",
+        "featTitle": "Aditional Features",
+        "otherFeats": {
+            "manageTitle": "Self Managable",
+            "manageContent": "Get administrator access to edit parts of your website without downtime",
+            "dbTitle": "Database Administration",
+            "dbContent": "New database creation or shared database integration",
+            "ecomTitle": "E-commerce",
+            "ecomContent": "Integration with your other E-commerce platforms",
+            "adsTitle": "Google Ads",
+            "adsContent": "Use Google Ads in your website",
+            "analTitle": "Google Analytics",
+            "analContent": "Benefit with Google Analytics services to understand better your visitors",
+            "apiTitle": "API Integration",
+            "apiContent": "Get your favourite Aplication Program Interface directly in your website"
+        },
+        "servTitle": "Aditional Services",
+        "otherServ": {
+            "hostTitle": "Hosting",
+            "hostContent": "Manage the hosting services for your website",
+            "domTitle": "Domain",
+            "domContent": "Reserve your prefered domain name",
+            "writeTitle": "Copywrite",
+            "writeContent": "Have the right message to boost your productivity",
+            "imgTitle": "Image Licencing",
+            "imgContent": "Make your website more attractive with the correct images",
+            "maintTitle": "Maintanence",
+            "maintContent": "Keep your website up to date and secure"
+
+        }
     }
 }

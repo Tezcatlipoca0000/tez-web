@@ -2,8 +2,8 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from 'next/navigation';
-import DarkIcon from "./DarkIcon";
-import LightIcon from "./LightIcon";
+import DarkIcon from "../icons/DarkIcon";
+import LightIcon from "../icons/LightIcon";
 
 export default function Header({ messages }) {
     const pathname = usePathname();

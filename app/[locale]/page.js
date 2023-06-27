@@ -3,6 +3,7 @@ import Footer from './components/Footer';
 import Example from './components/Example';
 import Header from './components/Header';
 import { getDictionary } from '../../get-dictionary';
+import Features from './components/Features';
 
 
 export default async function Home({params}) {
@@ -21,6 +22,8 @@ export default async function Home({params}) {
           <h2 className='text-center text-2xl my-8 w-11/12'>
             {dictionary.Home.intro}
           </h2>
+
+          <Features />
           
           <div className='flex flex-col justify-center items-center w-11/12'>
             {/* Section1 -- Custom */}
@@ -37,58 +40,58 @@ export default async function Home({params}) {
               </div>
             </div>
 
-            {/* Section2 -- Beautiful */}
+            {/* Section2 -- Color */}
             <div className='homeSection'>
               <div className='homeSectionBlock'>
                 <p className='text-2xl p-4 text-center'>
-                  {dictionary.Home.beautyContent}
+                  {dictionary.Home.colorContent}
                 </p>
               </div>
               <div className='homeSectionBlock'>
                 <h3 className='text-4xl'>
-                  {dictionary.Home.beautyTitle}
+                  {dictionary.Home.colorTitle}
                 </h3>
               </div>
             </div>
 
-            {/* Section3 -- powerful */}
+            {/* Section3 -- responsive */}
             <div className='homeSection'>
               <div className='homeSectionBlock'>
                 <h3 className='text-4xl'>
-                  {dictionary.Home.powerTitle}
+                  {dictionary.Home.respTitle}
                 </h3>
               </div>
               <div className='homeSectionBlock'>
                 <p className='text-2xl p-4 text-center'>
-                  {dictionary.Home.powerContent}
+                  {dictionary.Home.respContent}
                 </p>
               </div>
             </div>
 
-            {/* Section4 -- versatile */}
+            {/* Section4 -- internationalization */}
             <div className='homeSection'>
               <div className='homeSectionBlock'>
                 <p className='text-2xl p-4 text-center'>
-                  {dictionary.Home.versContent}
+                  {dictionary.Home.interContent}
                 </p>
               </div>
               <div className='homeSectionBlock'>
                 <h3 className='text-4xl'>
-                  {dictionary.Home.versTitle}
+                  {dictionary.Home.interTitle}
                 </h3>
               </div>
             </div>
 
-            {/* Section5 -- detailed */}
+            {/* Section5 -- seo */}
             <div className='homeSection'>
               <div className='homeSectionBlock'>
                 <h3 className='text-4xl'>
-                  {dictionary.Home.detailTitle}
+                  {dictionary.Home.seoTitle}
                 </h3>
               </div>
               <div className='homeSectionBlock'>
                 <p className='text-2xl p-4 text-center'>
-                  {dictionary.Home.detailContent}
+                  {dictionary.Home.seoContent}
                 </p>
               </div>
             </div>
@@ -98,15 +101,6 @@ export default async function Home({params}) {
       </>
   )
 }
-
-
-/* 
-custom  --> any design
-Beautiful --> theme mang.
-Powerful --> SEO
-Versatile --> i18nt
-Detailed --> special attn
-*/
 
 /*
 custom --> tailored for you
@@ -127,5 +121,5 @@ Other Services -->
     Copywrite
     Image Licencing
     Maintenance
-    Analytics report
+    Analytics report <-- DELETED
 */
