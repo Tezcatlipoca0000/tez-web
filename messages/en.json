@@ -8,7 +8,9 @@
     },
     "Home": {
         "welcome": "Welcome",
-        "intro": "",
+        "intro": ""
+    },
+    "Features": {
         "customTitle": "Custom Design",
         "customContent": "Completely custom designes tailored for you and your bussiness",
         "colorTitle": "Light & Dark Mode",
@@ -19,6 +21,8 @@
         "interContent": "Change the language of your site with a click and bring your message closer to all your potential customers",
         "seoTitle": "SEO",
         "seoContent": "With our Search Engine Optimization obtain the visibility you deserve",
+        "accesibTitle": "Accessibility",
+        "accesibContent": "Accesibility content",
         "manageTitle": "Self Managable",
         "manageContent": "Get administrator access to edit parts of your website without downtime",
         "dbTitle": "Database Administration",
@@ -30,20 +34,18 @@
         "analTitle": "Google Analytics",
         "analContent": "Benefit with Google Analytics services to understand better your visitors",
         "apiTitle": "API Integration",
-        "apiContent": "Get your favourite Aplication Program Interface directly in your website",
-        "servTitle": "Aditional Services",
-        "otherServ": {
-            "hostTitle": "Hosting",
-            "hostContent": "Manage the hosting services for your website",
-            "domTitle": "Domain",
-            "domContent": "Reserve your prefered domain name",
-            "writeTitle": "Copywrite",
-            "writeContent": "Have the right message to boost your productivity",
-            "imgTitle": "Image Licencing",
-            "imgContent": "Make your website more attractive with the correct images",
-            "maintTitle": "Maintanence",
-            "maintContent": "Keep your website up to date and secure"
-
-        }
+        "apiContent": "Get your favourite Aplication Program Interface directly in your website"
+    },
+    "Services": {
+        "hostTitle": "Hosting",
+        "hostContent": "Manage the hosting services for your website",
+        "domTitle": "Domain",
+        "domContent": "Reserve your prefered domain name",
+        "writeTitle": "Copywrite",
+        "writeContent": "Have the right message to boost your productivity",
+        "imgTitle": "Image Licencing",
+        "imgContent": "Make your website more attractive with the correct images",
+        "maintTitle": "Maintanence",
+        "maintContent": "Keep your website up to date and secure"
     }
 }

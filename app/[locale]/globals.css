@@ -55,14 +55,6 @@
     @apply inline-flex items-center h-fit px-8 py-2 text-xl rounded-lg border border-black dark:border-white bg-[rgb(255,255,255)] dark:bg-[rgb(20,20,20)] cursor-default;
   }
 
-  .homeSection {
-    @apply flex h-52 w-full my-8
-  }
-
-  .homeSectionBlock {
-    @apply border flex w-1/2 justify-center items-center
-  }
-
   .featBtn {
     @apply w-full px-4 py-2 inline-flex items-center space-x-4 hover:transition-[padding] duration-500 ease-in-out hover:pl-10 hover:animate-[bounceRight_500ms_ease-in-out_1] text-2xl
   }
