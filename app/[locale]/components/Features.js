@@ -18,8 +18,8 @@ export default function Features({ dictionary }) {
                 {down ? <ArrowDown /> : <ArrowUp />}
             </button>
             
-            <div id="featuresList" className="z-10 divide-y divide-gray-100 rounded-lg shadow w-full">
-                <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
+            <div id="featuresList" className="shadow w-full">
+                <ul className="py-2 text-gray-700 dark:text-gray-200 divide-y divide-current rounded-lg">
                     <li>
                         <button className="featBtn">
                             {dictionary.Home.customTitle}
