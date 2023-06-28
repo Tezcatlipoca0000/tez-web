@@ -13,113 +13,39 @@ export default function Features({ dictionary }) {
     }
     return (
         <div className="w-11/12 my-6">
-            <button className="border rounded-lg w-full inline-flex justify-between text-2xl p-4" type="button" onClick={toggleFeatures}>
-                Features 
-                {down ? <ArrowDown /> : <ArrowUp />}
-            </button>
-            
-            <div id="featuresList" className="shadow w-full">
-                <ul className="py-2 text-gray-700 dark:text-gray-200 divide-y divide-current rounded-lg">
-                    <li>
-                        <button className="featBtn">
-                            {dictionary.Home.customTitle}
-                            <ArrowRight />
-                            <span className="featDesc">
-                                {dictionary.Home.customContent}
-                            </span>
-                        </button>
-                    </li>
-                    <li>
-                        <button className="featBtn w-full px-4 py-2 inline-flex items-center space-x-4">
-                            {dictionary.Home.colorTitle}
-                            <ArrowRight />
-                            <span className="featDesc">
-                                {dictionary.Home.colorContent}
-                            </span>
-                        </button>
-                    </li>
-                    <li>
-                        <button className="featBtn w-full px-4 py-2 inline-flex items-center space-x-4">
-                            {dictionary.Home.respTitle}
-                            <ArrowRight />
-                            <span className="featDesc">
-                                {dictionary.Home.respContent}
-                            </span>
-                        </button>
-                    </li>
-                    <li>
-                        <button className="featBtn w-full px-4 py-2 inline-flex items-center space-x-4">
-                            {dictionary.Home.interTitle}
-                            <ArrowRight />
-                            <span className="featDesc">
-                                {dictionary.Home.interContent}
-                            </span>
-                        </button>
-                    </li>
-                    <li>
-                        <button className="featBtn w-full px-4 py-2 inline-flex items-center space-x-4">
-                            {dictionary.Home.seoTitle}
-                            <ArrowRight />
-                            <span className="featDesc">
-                                {dictionary.Home.seoContent}
-                            </span>
-                        </button>
-                    </li>
-                    <li>
-                        <button className="featBtn w-full px-4 py-2 inline-flex items-center space-x-4">
-                            {dictionary.Home.manageTitle}
-                            <ArrowRight />
-                            <span className="featDesc">
-                                {dictionary.Home.manageContent}
-                            </span>
-                        </button>
-                    </li>
-                    <li>
-                        <button className="featBtn w-full px-4 py-2 inline-flex items-center space-x-4">
-                            {dictionary.Home.dbTitle}
-                            <ArrowRight />
-                            <span className="featDesc">
-                                {dictionary.Home.dbContent}
-                            </span>
-                        </button>
-                    </li>
-                    <li>
-                        <button className="featBtn w-full px-4 py-2 inline-flex items-center space-x-4">
-                            {dictionary.Home.ecomTitle}
-                            <ArrowRight />
-                            <span className="featDesc">
-                                {dictionary.Home.ecomContent}
-                            </span>
-                        </button>
-                    </li>
-                    <li>
-                        <button className="featBtn w-full px-4 py-2 inline-flex items-center space-x-4">
-                            {dictionary.Home.adsTitle}
-                            <ArrowRight />
-                            <span className="featDesc">
-                                {dictionary.Home.adsContent}
-                            </span>
-                        </button>
-                    </li>
-                    <li>
-                        <button className="featBtn w-full px-4 py-2 inline-flex items-center space-x-4">
-                            {dictionary.Home.analTitle}
-                            <ArrowRight />
-                            <span className="featDesc">
-                                {dictionary.Home.analContent}
-                            </span>
-                        </button>
-                    </li>
-                    <li>
-                        <button className="featBtn w-full px-4 py-2 inline-flex items-center space-x-4">
-                            {dictionary.Home.apiTitle}
-                            <ArrowRight />
-                            <span className="featDesc">
-                                {dictionary.Home.apiContent}
-                            </span>
-                        </button>
-                    </li>
-                </ul>
+            <h2>Features</h2>
+            <div className="flex flex-wrap">
+
+                <div className="featCard">
+                    <h3 className="text-2xl">{dictionary.Features.customTitle}</h3>
+                    <p className="featDesc">{dictionary.Features.customContent}</p>
+                </div>
+
+                <div className="featCard">
+                    <h3 className="text-2xl">{dictionary.Features.colorTitle}</h3>
+                    <p className="featDesc">{dictionary.Features.colorContent}</p>
+                </div>
+
+                <div className="featCard">
+                    <h3 className="text-2xl">{dictionary.Features.respTitle}</h3>
+                    <p className="featDesc">{dictionary.Features.respContent}</p>
+                </div>
+
+                <div className="featCard">
+                    <h3 className="text-2xl">{dictionary.Features.interTitle}</h3>
+                    <p className="featDesc">{dictionary.Features.interContent}</p>
+                </div>
+
+                <div className="featCard">
+                    <h3 className="text-2xl">{dictionary.Features.seoTitle}</h3>
+                    <p className="featDesc">{dictionary.Features.seoContent}</p>
+                </div>
+
+                <div className="featCard">
+                    <h3 className="text-2xl">{dictionary.Features.accesibTitle}</h3>
+                    <p className="featDesc">{dictionary.Features.accesibContent}</p>
+                </div>
+
             </div>
         </div>
     );
