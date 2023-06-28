@@ -66,6 +66,14 @@
   .featBtn {
     @apply w-full px-4 py-2 inline-flex items-center space-x-4 hover:transition-[padding] duration-500 ease-in-out hover:pl-10 hover:animate-[bounceRight_500ms_ease-in-out_1] text-2xl
   }
+  
+  .featDesc1 {
+    @apply opacity-0 text-xl
+  }
+  
+  .featBtn:hover .featDesc1 {
+    @apply transition-opacity duration-500 ease-in opacity-100
+  }
 
   .featCard {
     @apply flex flex-col justify-center items-center w-[32%] min-h-[13rem] border p-10 m-1
