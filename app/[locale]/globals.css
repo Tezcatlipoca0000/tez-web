@@ -70,9 +70,13 @@
   .featDesc1 {
     @apply opacity-0 text-xl
   }
+
+  .descAppear {
+    @apply transition-opacity duration-500 ease-in opacity-100
+  }
   
   .featBtn:hover .featDesc1 {
-    @apply transition-opacity duration-500 ease-in opacity-100
+    @apply descAppear
   }
 
   .featCard {
@@ -84,6 +88,6 @@
   }
 
   .featCard:hover .featDesc {
-    @apply max-w-full max-h-full transition-opacity duration-500 ease-in opacity-100
+    @apply max-w-full max-h-full descAppear
   }
 }
