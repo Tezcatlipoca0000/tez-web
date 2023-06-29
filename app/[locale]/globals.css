@@ -63,31 +63,41 @@
     @apply border flex w-1/2 justify-center items-center
   }
 
+  /* **** Features **** */
+
+  /* ****          ****           Small screen Layout **** */
+
   .featBtn {
-    @apply w-full px-4 py-2 inline-flex items-center space-x-4 hover:transition-[padding] duration-500 ease-in-out hover:pl-10 hover:animate-[bounceRight_500ms_ease-in-out_1] text-2xl
+    @apply w-full px-4 py-2 inline-flex items-center space-x-4 hover:transition-[padding] duration-500 ease-in-out hover:pl-10 hover:animate-[bounceRight_500ms_ease-in-out_1] text-2xl 
   }
-  
+
   .featDesc1 {
-    @apply opacity-0 text-xl
+    @apply opacity-0 text-xl text-justify
   }
 
   .descAppear {
     @apply transition-opacity duration-500 ease-in opacity-100
   }
-  
+
   .featBtn:hover .featDesc1 {
     @apply descAppear
   }
 
+  /* ****          ****           Big screen Layout **** */
+
   .featCard {
-    @apply flex flex-col justify-center items-center w-[32%] min-h-[13rem] border p-10 m-1
+    @apply relative flex flex-col justify-center items-center w-[32%] min-h-[13rem] border p-10 m-1
   }
 
   .featDesc {
     @apply w-auto h-auto max-h-0 max-w-0 overflow-hidden opacity-0 text-justify mt-5
   }
 
-  .featCard:hover .featDesc {
+  .descAppear2 {
     @apply max-w-full max-h-full descAppear
+  }
+
+  .featCard:hover .featDesc {
+    @apply descAppear2
   }
 }

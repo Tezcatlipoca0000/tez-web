@@ -1,8 +1,10 @@
 'use client';
+import customBG from "../../../public/customBG.jpg"
 import ArrowDown from "../icons/ArrowDown";
 import ArrowRight from "../icons/ArrowRight";
 import ArrowUp from "../icons/ArrowUp";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Features({ dictionary }) {
     const [down, setDown] = useState(false);
@@ -13,9 +15,10 @@ export default function Features({ dictionary }) {
     }
 
     function toggleFeature(e) {
-        let desc1 = e.target.closest('span') ? e.target.closest('span') : e.target.lastElementChild;
-        desc1.classList.toggle('descAppear');
+        let desc = e.currentTarget.lastElementChild;
+        desc.classList.toggle('descAppear2');
     }
+
     return (
         <>
             {/* For larger screens */}
@@ -23,7 +26,8 @@ export default function Features({ dictionary }) {
                 <h2>Features</h2>
                 <div className="flex flex-wrap">
 
-                    <div className="featCard">
+                    <div className="featCard" onClick={toggleFeature}>
+                        <Image src={customBG} alt="custom design background image" fill className="opacity-50"/>
                         <h3 className="text-2xl">{dictionary.Features.customTitle}</h3>
                         <p className="featDesc">{dictionary.Features.customContent}</p>
                     </div>
