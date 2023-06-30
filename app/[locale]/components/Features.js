@@ -1,5 +1,9 @@
 'use client';
-import customBG from "../../../public/customBG.jpg"
+import customBG from "@/public/customBG.jpg";
+import colorModeBG from "@/public/colorModeBG.jpg";
+import responsiveBG from "@/public/responsiveBG.jpg";
+import interBG from "@/public/interBG.jpg";
+import seoBG from "@/public/seoBG.jpg";
 import ArrowDown from "../icons/ArrowDown";
 import ArrowRight from "../icons/ArrowRight";
 import ArrowUp from "../icons/ArrowUp";
@@ -15,8 +19,11 @@ export default function Features({ dictionary }) {
     }
 
     function toggleFeature(e) {
-        let desc = e.currentTarget.lastElementChild;
+        let desc = e.currentTarget.lastElementChild,
+            img = e.currentTarget.firstChild.firstChild;
         desc.classList.toggle('descAppear2');
+        img.classList.toggle('imgBlurred');
+        // todo: for smaller screen there's no img ele 
     }
 
     return (
@@ -27,34 +34,79 @@ export default function Features({ dictionary }) {
                 <div className="flex flex-wrap">
 
                     <div className="featCard" onClick={toggleFeature}>
-                        <Image src={customBG} alt="custom design background image" fill className="opacity-50"/>
-                        <h3 className="text-2xl">{dictionary.Features.customTitle}</h3>
-                        <p className="featDesc">{dictionary.Features.customContent}</p>
+                        <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+                            <Image src={customBG} alt="custom design background image" fill style={{objectFit: "cover"}} className=" opacity-95"/>
+                        </div>
+                        <h3 className="z-10 text-4xl">{dictionary.Features.customTitle}</h3>
+                        <p className="z-10 featDesc">{dictionary.Features.customContent}</p>
+                    </div>
+
+                    <div className="featCard" onClick={toggleFeature}>
+                        <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+                            <Image src={colorModeBG} alt="color mode background image" fill style={{objectFit: "cover"}} className=" opacity-95"/>
+                        </div>
+                        <h3 className="z-10 text-4xl">{dictionary.Features.colorTitle}</h3>
+                        <p className="z-10 featDesc">{dictionary.Features.colorContent}</p>
+                    </div>
+
+                    <div className="featCard" onClick={toggleFeature}>
+                        <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+                            <Image src={responsiveBG} alt="color mode background image" fill style={{objectFit: "cover"}} className=" opacity-95"/>
+                        </div>
+                        <h3 className="z-10 text-4xl">{dictionary.Features.respTitle}</h3>
+                        <p className="z-10 featDesc">{dictionary.Features.respContent}</p>
+                    </div>
+
+                    <div className="featCard" onClick={toggleFeature}>
+                        <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+                            <Image src={interBG} alt="color mode background image" fill style={{objectFit: "cover"}} className=" opacity-95"/>
+                        </div>
+                        <h3 className="z-10 text-4xl">{dictionary.Features.interTitle}</h3>
+                        <p className="z-10 featDesc">{dictionary.Features.interContent}</p>
+                    </div>
+
+                    <div className="featCard" onClick={toggleFeature}>
+                        <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+                            <Image src={seoBG} alt="color mode background image" fill style={{objectFit: "cover"}} className=" opacity-95"/>
+                        </div>
+                        <h3 className="z-10 text-4xl">{dictionary.Features.seoTitle}</h3>
+                        <p className="z-10 featDesc">{dictionary.Features.seoContent}</p>
                     </div>
 
                     <div className="featCard">
-                        <h3 className="text-2xl">{dictionary.Features.colorTitle}</h3>
-                        <p className="featDesc">{dictionary.Features.colorContent}</p>
-                    </div>
-
-                    <div className="featCard">
-                        <h3 className="text-2xl">{dictionary.Features.respTitle}</h3>
-                        <p className="featDesc">{dictionary.Features.respContent}</p>
-                    </div>
-
-                    <div className="featCard">
-                        <h3 className="text-2xl">{dictionary.Features.interTitle}</h3>
-                        <p className="featDesc">{dictionary.Features.interContent}</p>
-                    </div>
-
-                    <div className="featCard">
-                        <h3 className="text-2xl">{dictionary.Features.seoTitle}</h3>
-                        <p className="featDesc">{dictionary.Features.seoContent}</p>
-                    </div>
-
-                    <div className="featCard">
-                        <h3 className="text-2xl">{dictionary.Features.accesibTitle}</h3>
+                        <h3 className="text-4xl">{dictionary.Features.accesibTitle}</h3>
                         <p className="featDesc">{dictionary.Features.accesibContent}</p>
+                    </div>
+
+                    {/* */}
+                    <div className="featCard">
+                        <h3 className="text-4xl">{dictionary.Features.manageTitle}</h3>
+                        <p className="featDesc">{dictionary.Features.manageContent}</p>
+                    </div>
+
+                    <div className="featCard">
+                        <h3 className="text-4xl">{dictionary.Features.dbTitle}</h3>
+                        <p className="featDesc">{dictionary.Features.dbContent}</p>
+                    </div>
+
+                    <div className="featCard">
+                        <h3 className="text-4xl">{dictionary.Features.ecomTitle}</h3>
+                        <p className="featDesc">{dictionary.Features.ecomContent}</p>
+                    </div>
+
+                    <div className="featCard">
+                        <h3 className="text-4xl">{dictionary.Features.adsTitle}</h3>
+                        <p className="featDesc">{dictionary.Features.adsContent}</p>
+                    </div>
+
+                    <div className="featCard">
+                        <h3 className="text-4xl">{dictionary.Features.analTitle}</h3>
+                        <p className="featDesc">{dictionary.Features.analContent}</p>
+                    </div>
+
+                    <div className="featCard">
+                        <h3 className="text-4xl">{dictionary.Features.apiTitle}</h3>
+                        <p className="featDesc">{dictionary.Features.apiContent}</p>
                     </div>
 
                 </div>

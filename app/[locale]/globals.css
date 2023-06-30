@@ -97,7 +97,15 @@
     @apply max-w-full max-h-full descAppear
   }
 
+  .imgBlurred {
+    @apply blur-sm
+  }
+
   .featCard:hover .featDesc {
     @apply descAppear2
+  }
+
+  .featCard:hover img {
+    @apply blur-sm
   }
 }
