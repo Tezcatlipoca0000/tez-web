@@ -23,8 +23,8 @@ export default async function Home({params}) {
           </h2>
 
           <Features dictionary={dictionary}/>
-          <Services />
-
+          <Services dictionary={dictionary}/>
+          
         </main>
       </>
   )

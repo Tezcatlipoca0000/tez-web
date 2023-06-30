@@ -71,11 +71,11 @@ export default function Header({ messages }) {
                 {/* Settings: */}
                 <div className="flex justify-end items-center p-4 space-x-4">
                     {/* Lang */}
-                    <Link className="p-2.5 ring-4 ring-gray-700 dark:ring-gray-200 rounded-lg" href={redirectLang(locale)}>
+                    <Link className="p-[11px] ring-4 ring-gray-700 dark:ring-gray-200 rounded-lg" href={redirectLang(locale)}>
                         {locale === 'en' ? 'ES' : 'EN'}
                     </Link>
                     {/* Theme */}
-                    <button type="button" className="h-fit ring-4 ring-gray-700 dark:ring-gray-200 rounded-lg text-sm p-2.5" onClick={toggleTheme}>
+                    <button type="button" className="h-fit ring-4 ring-gray-700 dark:ring-gray-200 rounded-lg p-[11px]" onClick={toggleTheme}>
                         {dark ? <LightIcon /> : <DarkIcon />}
                     </button>
                 </div>

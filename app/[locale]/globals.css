@@ -55,15 +55,53 @@
     @apply inline-flex items-center h-fit px-8 py-2 text-xl rounded-lg border border-black dark:border-white bg-[rgb(255,255,255)] dark:bg-[rgb(20,20,20)] cursor-default;
   }
 
+  .homeSection {
+    @apply flex h-52 w-full my-8
+  }
+
+  .homeSectionBlock {
+    @apply border flex w-1/2 justify-center items-center
+  }
+
   .featBtn {
-    @apply w-full px-4 py-2 inline-flex items-center space-x-4 hover:transition-[padding] duration-500 ease-in-out hover:pl-10 hover:animate-[bounceRight_500ms_ease-in-out_1] text-2xl
+    @apply w-full px-4 py-2 inline-flex items-center space-x-4 hover:transition-[padding] duration-500 ease-in-out hover:pl-10 hover:animate-[bounceRight_500ms_ease-in-out_1] text-2xl 
+  }
+
+  .featDesc1 {
+    @apply opacity-0 text-xl text-justify
+  }
+
+  .descAppear {
+    @apply transition-opacity duration-500 ease-in opacity-100
+  }
+
+  .featBtn:hover .featDesc1 {
+    @apply descAppear
+  }
+
+  /* ****          ****           Big screen Layout **** */
+
+  .featCard {
+    @apply relative flex flex-col justify-center items-center w-[32%] min-h-[13rem] border p-10 m-1
   }
 
   .featDesc {
-    @apply opacity-0 text-xl
+    @apply w-auto h-auto max-h-0 max-w-0 overflow-hidden opacity-0 text-justify mt-5
   }
 
-  .featBtn:hover .featDesc {
-    @apply transition-opacity duration-500 ease-in opacity-100
+  .descAppear2 {
+    @apply max-w-full max-h-full descAppear
+  }
+
+  .imgBlurred {
+    @apply blur-sm
+  }
+
+  .featCard:hover .featDesc {
+    @apply descAppear2
+  }
+
+  .featCard:hover img {
+    @apply blur-sm
   }
 }
