@@ -57,10 +57,10 @@ export default function Services({ dictionary }) {
                     </li>
                     <li>
                         <button className="featBtn">
-                            {dictionary.Services.mainTitle}
+                            {dictionary.Services.maintTitle}
                             <ArrowRight />
                             <span className="featDesc1">
-                                {dictionary.Services.mainContent}
+                                {dictionary.Services.maintContent}
                             </span>
                         </button>
                     </li>
