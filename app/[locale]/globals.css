@@ -63,34 +63,30 @@
     @apply border flex w-1/2 justify-center items-center
   }
 
-  /* **** Features **** */
+                                                    /* **** Features **** */
 
-  /* ****          ****           Small screen Layout **** */
+  /* ****          Small screen Layout **** */
 
   .featBtn {
-    @apply w-full px-4 py-2 inline-flex items-center space-x-4 hover:transition-[padding] duration-500 ease-in-out hover:pl-10 hover:animate-[bounceRight_500ms_ease-in-out_1] text-2xl 
-  }
-
-  .featDesc1 {
-    @apply opacity-0 text-xl text-justify
-  }
-
-  .descAppear {
-    @apply transition-opacity duration-500 ease-in opacity-100
-  }
-
-  .featBtn:hover .featDesc1 {
-    @apply descAppear
-  }
-
-  /* ****          ****           Big screen Layout **** */
-
-  .featCard {
-    @apply relative flex flex-col justify-center items-center w-[32%] min-h-[13rem] border p-10 m-1
+    @apply w-full inline-flex flex-col px-4 py-2 space-x-4 hover:transition-[padding] duration-500 ease-in-out hover:pl-10 hover:animate-[bounceRight_500ms_ease-in-out_1] text-2xl 
   }
 
   .featDesc {
-    @apply w-auto h-auto max-h-0 max-w-0 overflow-hidden opacity-0 text-justify mt-5
+    @apply w-auto h-auto max-h-0 max-w-0 overflow-hidden opacity-0 text-xl
+  }
+
+  .descAppear {
+    @apply max-w-full max-h-full transition-opacity duration-500 ease-in opacity-100
+  }
+
+  .featBtn:hover .featDesc {
+    @apply descAppear
+  }
+
+  /* ****          Big screen Layout **** */
+
+  .featCard {
+    @apply relative flex flex-col justify-center items-center w-[32%] min-h-[13rem] border p-10 m-1
   }
 
   .descAppear2 {

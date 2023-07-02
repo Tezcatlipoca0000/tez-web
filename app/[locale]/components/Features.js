@@ -45,7 +45,7 @@ export default function Features({ dictionary }) {
                             <Image src={customBG} alt="custom design background image" fill style={{objectFit: "cover"}} className=""/>
                         </div>
                         <h3 className="z-10 text-4xl">{dictionary.Features.customTitle}</h3>
-                        <p className="z-10 featDesc">{dictionary.Features.customContent}</p>
+                        <p className="z-10 featDesc text-justify mt-5">{dictionary.Features.customContent}</p>
                     </div>
 
                     <div className="featCard" onClick={toggleFeature}>
@@ -53,7 +53,7 @@ export default function Features({ dictionary }) {
                             <Image src={colorModeBG} alt="color mode background image" fill style={{objectFit: "cover"}} className=""/>
                         </div>
                         <h3 className="z-10 text-4xl">{dictionary.Features.colorTitle}</h3>
-                        <p className="z-10 featDesc">{dictionary.Features.colorContent}</p>
+                        <p className="z-10 featDesc text-justify mt-5">{dictionary.Features.colorContent}</p>
                     </div>
 
                     <div className="featCard" onClick={toggleFeature}>
@@ -61,7 +61,7 @@ export default function Features({ dictionary }) {
                             <Image src={responsiveBG} alt="responsive design background image" fill style={{objectFit: "cover"}} className=""/>
                         </div>
                         <h3 className="z-10 text-4xl">{dictionary.Features.respTitle}</h3>
-                        <p className="z-10 featDesc">{dictionary.Features.respContent}</p>
+                        <p className="z-10 featDesc text-justify mt-5">{dictionary.Features.respContent}</p>
                     </div>
 
                     <div className="featCard" onClick={toggleFeature}>
@@ -69,7 +69,7 @@ export default function Features({ dictionary }) {
                             <Image src={interBG} alt="internationalization background image" fill style={{objectFit: "cover"}} className=""/>
                         </div>
                         <h3 className="z-10 text-4xl">{dictionary.Features.interTitle}</h3>
-                        <p className="z-10 featDesc">{dictionary.Features.interContent}</p>
+                        <p className="z-10 featDesc text-justify mt-5">{dictionary.Features.interContent}</p>
                     </div>
 
                     <div className="featCard" onClick={toggleFeature}>
@@ -77,7 +77,7 @@ export default function Features({ dictionary }) {
                             <Image src={seoBG} alt="SEO background image" fill style={{objectFit: "cover"}} className=""/>
                         </div>
                         <h3 className="z-10 text-4xl">{dictionary.Features.seoTitle}</h3>
-                        <p className="z-10 featDesc">{dictionary.Features.seoContent}</p>
+                        <p className="z-10 featDesc text-justify mt-5">{dictionary.Features.seoContent}</p>
                     </div>
 
                     <div className="featCard" onClick={toggleFeature}>
@@ -85,7 +85,7 @@ export default function Features({ dictionary }) {
                             <Image src={accesibBG} alt="Accesibility background image" fill style={{objectFit: "cover"}} className=""/>
                         </div>
                         <h3 className="z-10 text-4xl">{dictionary.Features.accesibTitle}</h3>
-                        <p className="z-10 featDesc">{dictionary.Features.accesibContent}</p>
+                        <p className="z-10 featDesc text-justify mt-5">{dictionary.Features.accesibContent}</p>
                     </div>
 
                     <div className="featCard" onClick={toggleFeature}>
@@ -93,7 +93,7 @@ export default function Features({ dictionary }) {
                             <Image src={manageBG} alt="Self-Manageable background image" fill style={{objectFit: "cover"}} className=""/>
                         </div>
                         <h3 className="z-10 text-4xl">{dictionary.Features.manageTitle}</h3>
-                        <p className="z-10 featDesc">{dictionary.Features.manageContent}</p>
+                        <p className="z-10 featDesc text-justify mt-5">{dictionary.Features.manageContent}</p>
                     </div>
 
                     <div className="featCard" onClick={toggleFeature}>
@@ -101,7 +101,7 @@ export default function Features({ dictionary }) {
                             <Image src={dbBG} alt="Database Administration background image" fill style={{objectFit: "cover"}} className=""/>
                         </div>
                         <h3 className="z-10 text-4xl">{dictionary.Features.dbTitle}</h3>
-                        <p className="z-10 featDesc">{dictionary.Features.dbContent}</p>
+                        <p className="z-10 featDesc text-justify mt-5">{dictionary.Features.dbContent}</p>
                     </div>
 
                     <div className="featCard" onClick={toggleFeature}>
@@ -109,7 +109,7 @@ export default function Features({ dictionary }) {
                             <Image src={ecommBG} alt="Ecommerce background image" fill style={{objectFit: "cover"}} className=""/>
                         </div>
                         <h3 className="z-10 text-4xl">{dictionary.Features.ecomTitle}</h3>
-                        <p className="z-10 featDesc">{dictionary.Features.ecomContent}</p>
+                        <p className="z-10 featDesc text-justify mt-5">{dictionary.Features.ecomContent}</p>
                     </div>
 
                     <div className="featCard" onClick={toggleFeature}>
@@ -117,7 +117,7 @@ export default function Features({ dictionary }) {
                             <Image src={adsBG} alt="Google Ads background image" fill style={{objectFit: "cover"}} className=""/>
                         </div>
                         <h3 className="z-10 text-4xl">{dictionary.Features.adsTitle}</h3>
-                        <p className="z-10 featDesc">{dictionary.Features.adsContent}</p>
+                        <p className="z-10 featDesc text-justify mt-5">{dictionary.Features.adsContent}</p>
                     </div>
 
                     <div className="featCard" onClick={toggleFeature}>
@@ -125,7 +125,7 @@ export default function Features({ dictionary }) {
                             <Image src={analBG} alt="Google Analytics background image" fill style={{objectFit: "cover"}} className=""/>
                         </div>
                         <h3 className="z-10 text-4xl">{dictionary.Features.analTitle}</h3>
-                        <p className="z-10 featDesc">{dictionary.Features.analContent}</p>
+                        <p className="z-10 featDesc text-justify mt-5">{dictionary.Features.analContent}</p>
                     </div>
 
                     <div className="featCard" onClick={toggleFeature}>
@@ -133,26 +133,30 @@ export default function Features({ dictionary }) {
                             <Image src={apiBG} alt="API Integration background image" fill style={{objectFit: "cover"}} className=""/>
                         </div>
                         <h3 className="z-10 text-4xl">{dictionary.Features.apiTitle}</h3>
-                        <p className="z-10 featDesc">{dictionary.Features.apiContent}</p>
+                        <p className="z-10 featDesc text-justify mt-5">{dictionary.Features.apiContent}</p>
                     </div>
 
                 </div>
             </div>
 
             {/* For smaller screens */}
-            <div className="w-11/12 my-6 lg:hidden">
+            <div className="w-screen my-6 flex flex-col justify-center items-center lg:hidden">
                 <button className="border rounded-lg w-full inline-flex justify-between text-2xl p-4" type="button" onClick={toggleFeatures}>
                     Features 
-                    {down ? <ArrowDown /> : <ArrowUp />}
+                    {down ? <ArrowDown width="4"/> : <ArrowUp />}
                 </button>
             
-                <div id="featuresList" className="shadow w-full">
+                <div id="featuresList" className="shadow w-11/12">
                     <ul className="py-2 text-gray-700 dark:text-gray-200 divide-y divide-current rounded-lg">
                         <li>
                             <button className="featBtn" onClick={toggleFeature}>
-                                {dictionary.Features.customTitle}
-                                <ArrowRight />
-                                <span className="featDesc1">
+                                <div className=" w-full flex items-center justify-between">
+                                    <ArrowDown width="2"/>
+                                    <h3 className="">
+                                        {dictionary.Features.customTitle}
+                                    </h3>
+                                </div>
+                                <span className="featDesc text-center">
                                     {dictionary.Features.customContent}
                                 </span>
                             </button>
@@ -160,8 +164,8 @@ export default function Features({ dictionary }) {
                         <li>
                             <button className="featBtn">
                                 {dictionary.Features.colorTitle}
-                                <ArrowRight />
-                                <span className="featDesc1">
+                                
+                                <span className="featDesc text-center">
                                     {dictionary.Features.colorContent}
                                 </span>
                             </button>
@@ -169,8 +173,8 @@ export default function Features({ dictionary }) {
                         <li>
                             <button className="featBtn">
                                 {dictionary.Features.respTitle}
-                                <ArrowRight />
-                                <span className="featDesc1">
+                                
+                                <span className="featDesc text-center">
                                     {dictionary.Features.respContent}
                                 </span>
                             </button>
@@ -178,8 +182,8 @@ export default function Features({ dictionary }) {
                         <li>
                             <button className="featBtn">
                                 {dictionary.Features.interTitle}
-                                <ArrowRight />
-                                <span className="featDesc1">
+                                
+                                <span className="featDesc text-center">
                                     {dictionary.Features.interContent}
                                 </span>
                             </button>
@@ -187,8 +191,8 @@ export default function Features({ dictionary }) {
                         <li>
                             <button className="featBtn">
                                 {dictionary.Features.seoTitle}
-                                <ArrowRight />
-                                <span className="featDesc1">
+                                
+                                <span className="featDesc text-center">
                                     {dictionary.Features.seoContent}
                                 </span>
                             </button>
@@ -196,8 +200,8 @@ export default function Features({ dictionary }) {
                         <li>
                             <button className="featBtn">
                                 {dictionary.Features.accesibTitle}
-                                <ArrowRight />
-                                <span className="featDesc1">
+                                
+                                <span className="featDesc text-center">
                                     {dictionary.Features.accesibContent}
                                 </span>
                             </button>
@@ -205,8 +209,8 @@ export default function Features({ dictionary }) {
                         <li>
                             <button className="featBtn">
                                 {dictionary.Features.manageTitle}
-                                <ArrowRight />
-                                <span className="featDesc1">
+                                
+                                <span className="featDesc text-center">
                                     {dictionary.Features.manageContent}
                                 </span>
                             </button>
@@ -214,8 +218,8 @@ export default function Features({ dictionary }) {
                         <li>
                             <button className="featBtn">
                                 {dictionary.Features.dbTitle}
-                                <ArrowRight />
-                                <span className="featDesc1">
+                                
+                                <span className="featDesc text-center">
                                     {dictionary.Features.dbContent}
                                 </span>
                             </button>
@@ -223,8 +227,8 @@ export default function Features({ dictionary }) {
                         <li>
                             <button className="featBtn">
                                 {dictionary.Features.ecomTitle}
-                                <ArrowRight />
-                                <span className="featDesc1">
+                                
+                                <span className="featDesc text-center">
                                     {dictionary.Features.ecomContent}
                                 </span>
                             </button>
@@ -232,8 +236,8 @@ export default function Features({ dictionary }) {
                         <li>
                             <button className="featBtn">
                                 {dictionary.Features.adsTitle}
-                                <ArrowRight />
-                                <span className="featDesc1">
+                                
+                                <span className="featDesc text-center">
                                     {dictionary.Features.adsContent}
                                 </span>
                             </button>
@@ -241,8 +245,8 @@ export default function Features({ dictionary }) {
                         <li>
                             <button className="featBtn">
                                 {dictionary.Features.analTitle}
-                                <ArrowRight />
-                                <span className="featDesc1">
+                                
+                                <span className="featDesc text-center">
                                     {dictionary.Features.analContent}
                                 </span>
                             </button>
@@ -250,8 +254,8 @@ export default function Features({ dictionary }) {
                         <li>
                             <button className="featBtn">
                                 {dictionary.Features.apiTitle}
-                                <ArrowRight />
-                                <span className="featDesc1">
+                                
+                                <span className="featDesc text-center">
                                     {dictionary.Features.apiContent}
                                 </span>
                             </button>
