@@ -72,7 +72,7 @@
   }
 
   .featDesc {
-    @apply w-auto h-auto max-h-0 max-w-0 overflow-hidden opacity-0 text-xl
+    @apply w-auto h-auto max-h-0 max-w-0 overflow-hidden opacity-0 text-xl text-justify
   }
 
   .descAppear {

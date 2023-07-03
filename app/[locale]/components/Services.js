@@ -23,7 +23,7 @@ export default function Services({ dictionary }) {
                         <button className="featBtn">
                             <div className="flex items-center">
                                 <ArrowDown width="2"/>
-                                <h3 className="ml-[33%]">
+                                <h3 className="ml-6">
                                     {dictionary.Services.hostTitle}
                                 </h3>
                             </div>
@@ -36,7 +36,7 @@ export default function Services({ dictionary }) {
                         <button className="featBtn">
                             <div className="flex items-center">
                                 <ArrowDown width="2"/>
-                                <h3 className="ml-[33%]">
+                                <h3 className="ml-6">
                                     {dictionary.Services.domTitle}
                                 </h3>
                             </div>
@@ -49,7 +49,7 @@ export default function Services({ dictionary }) {
                         <button className="featBtn">
                             <div className="flex items-center">
                                 <ArrowDown width="2"/>
-                                <h3 className="ml-[33%]">
+                                <h3 className="ml-6">
                                     {dictionary.Services.writeTitle}
                                 </h3>
                             </div>
@@ -62,7 +62,7 @@ export default function Services({ dictionary }) {
                         <button className="featBtn">
                             <div className="flex items-center">
                                 <ArrowDown width="2"/>
-                                <h3 className="ml-[33%]">
+                                <h3 className="ml-6">
                                     {dictionary.Services.imgTitle}
                                 </h3>
                             </div>
@@ -75,7 +75,7 @@ export default function Services({ dictionary }) {
                         <button className="featBtn">
                             <div className="flex items-center">
                                 <ArrowDown width="2"/>
-                                <h3 className="ml-[33%]">
+                                <h3 className="ml-6">
                                     {dictionary.Services.maintTitle}
                                 </h3>
                             </div>
