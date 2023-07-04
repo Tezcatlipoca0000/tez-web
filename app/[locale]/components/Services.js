@@ -15,14 +15,14 @@ export default function Services({ dictionary }) {
         <div className="w-screen my-6 flex flex-col justify-center items-center">
             <button className="border rounded-lg w-full inline-flex justify-between text-2xl p-4" type="button" onClick={toggleServices}>
                 Services 
-                {down ? <ArrowDown width="4"/> : <ArrowUp />}
+                {down ? <ArrowDown props={...{width:"4", data:""}} /> : <ArrowUp props={...{width:"4", data:"Services", class:""}} />}
             </button>
             <div id="serviceList" className="shadow w-11/12">
                 <ul className="py-2 text-gray-700 dark:text-gray-200 divide-y divide-current rounded-lg">
                     <li>
                         <button className="featBtn">
                             <div className="flex items-center">
-                                <ArrowDown width="2"/>
+                                <ArrowDown props={...{width:"2", data:""}} />
                                 <h3 className="ml-6">
                                     {dictionary.Services.hostTitle}
                                 </h3>
@@ -35,7 +35,7 @@ export default function Services({ dictionary }) {
                     <li>
                         <button className="featBtn">
                             <div className="flex items-center">
-                                <ArrowDown width="2"/>
+                                <ArrowDown props={...{width:"2", data:""}} />
                                 <h3 className="ml-6">
                                     {dictionary.Services.domTitle}
                                 </h3>
@@ -48,7 +48,7 @@ export default function Services({ dictionary }) {
                     <li>
                         <button className="featBtn">
                             <div className="flex items-center">
-                                <ArrowDown width="2"/>
+                                <ArrowDown props={...{width:"2", data:""}} />
                                 <h3 className="ml-6">
                                     {dictionary.Services.writeTitle}
                                 </h3>
@@ -61,7 +61,7 @@ export default function Services({ dictionary }) {
                     <li>
                         <button className="featBtn">
                             <div className="flex items-center">
-                                <ArrowDown width="2"/>
+                                <ArrowDown props={...{width:"2", data:""}} />
                                 <h3 className="ml-6">
                                     {dictionary.Services.imgTitle}
                                 </h3>
@@ -74,7 +74,7 @@ export default function Services({ dictionary }) {
                     <li>
                         <button className="featBtn">
                             <div className="flex items-center">
-                                <ArrowDown width="2"/>
+                                <ArrowDown props={...{width:"2", data:""}} />
                                 <h3 className="ml-6">
                                     {dictionary.Services.maintTitle}
                                 </h3>
