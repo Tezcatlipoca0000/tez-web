@@ -28,8 +28,8 @@ export default function Features({ dictionary }) {
     function toggleFeature(e) {
         let desc = e.currentTarget.lastElementChild,
             img = e.currentTarget.firstChild.firstChild;
-        desc.classList.toggle('descAppear2');
-        img.classList.toggle('imgBlurred');
+        desc.classList.toggle('descAppear');
+        img.classList.toggle('blur-sm');
         // todo: for smaller screen there's no img ele 
     }
 
@@ -156,9 +156,9 @@ export default function Features({ dictionary }) {
                                         {dictionary.Features.customTitle}
                                     </h3>
                                 </div>
-                                <span className="featDesc">
+                                <p className="featDesc">
                                     {dictionary.Features.customContent}
-                                </span>
+                                </p>
                             </button>
                         </li>
                         <li>
@@ -169,9 +169,9 @@ export default function Features({ dictionary }) {
                                         {dictionary.Features.colorTitle}
                                     </h3>
                                 </div>
-                                <span className="featDesc">
+                                <p className="featDesc">
                                     {dictionary.Features.colorContent}
-                                </span>
+                                </p>
                             </button>
                         </li>
                         <li>
@@ -182,9 +182,9 @@ export default function Features({ dictionary }) {
                                         {dictionary.Features.respTitle}
                                     </h3>
                                 </div>
-                                <span className="featDesc">
+                                <p className="featDesc">
                                     {dictionary.Features.respContent}
-                                </span>
+                                </p>
                             </button>
                         </li>
                         <li>
@@ -195,9 +195,9 @@ export default function Features({ dictionary }) {
                                         {dictionary.Features.interTitle}
                                     </h3>
                                 </div>  
-                                <span className="featDesc">
+                                <p className="featDesc">
                                     {dictionary.Features.interContent}
-                                </span>
+                                </p>
                             </button>
                         </li>
                         <li>
@@ -208,9 +208,9 @@ export default function Features({ dictionary }) {
                                         {dictionary.Features.seoTitle}
                                     </h3>
                                 </div>
-                                <span className="featDesc">
+                                <p className="featDesc">
                                     {dictionary.Features.seoContent}
-                                </span>
+                                </p>
                             </button>
                         </li>
                         <li>
@@ -221,9 +221,9 @@ export default function Features({ dictionary }) {
                                         {dictionary.Features.accesibTitle}
                                     </h3>
                                 </div>
-                                <span className="featDesc">
+                                <p className="featDesc">
                                     {dictionary.Features.accesibContent}
-                                </span>
+                                </p>
                             </button>
                         </li>
                         <li>
@@ -234,9 +234,9 @@ export default function Features({ dictionary }) {
                                         {dictionary.Features.manageTitle}
                                     </h3>
                                 </div>
-                                <span className="featDesc">
+                                <p className="featDesc">
                                     {dictionary.Features.manageContent}
-                                </span>
+                                </p>
                             </button>
                         </li>
                         <li>
@@ -247,9 +247,9 @@ export default function Features({ dictionary }) {
                                         {dictionary.Features.dbTitle}
                                     </h3>
                                 </div>
-                                <span className="featDesc">
+                                <p className="featDesc">
                                     {dictionary.Features.dbContent}
-                                </span>
+                                </p>
                             </button>
                         </li>
                         <li>
@@ -260,9 +260,9 @@ export default function Features({ dictionary }) {
                                         {dictionary.Features.ecomTitle}
                                     </h3>
                                 </div>
-                                <span className="featDesc">
+                                <p className="featDesc">
                                     {dictionary.Features.ecomContent}
-                                </span>
+                                </p>
                             </button>
                         </li>
                         <li>
@@ -273,9 +273,9 @@ export default function Features({ dictionary }) {
                                         {dictionary.Features.adsTitle}
                                     </h3>
                                 </div>
-                                <span className="featDesc">
+                                <p className="featDesc">
                                     {dictionary.Features.adsContent}
-                                </span>
+                                </p>
                             </button>
                         </li>
                         <li>
@@ -286,9 +286,9 @@ export default function Features({ dictionary }) {
                                         {dictionary.Features.analTitle}
                                     </h3>
                                 </div>
-                                <span className="featDesc">
+                                <p className="featDesc">
                                     {dictionary.Features.analContent}
-                                </span>
+                                </p>
                             </button>
                         </li>
                         <li>
@@ -299,9 +299,9 @@ export default function Features({ dictionary }) {
                                         {dictionary.Features.apiTitle}
                                     </h3>
                                 </div>
-                                <span className="featDesc">
+                                <p className="featDesc">
                                     {dictionary.Features.apiContent}
-                                </span>
+                                </p>
                             </button>
                         </li>
                     </ul>

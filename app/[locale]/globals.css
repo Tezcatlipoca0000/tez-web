@@ -89,16 +89,8 @@
     @apply relative flex flex-col justify-center items-center w-[32%] min-h-[13rem] border p-10 m-1
   }
 
-  .descAppear2 {
-    @apply max-w-full max-h-full descAppear
-  }
-
-  .imgBlurred {
-    @apply blur-sm
-  }
-
   .featCard:hover .featDesc {
-    @apply descAppear2
+    @apply descAppear
   }
 
   .featCard:hover img {
