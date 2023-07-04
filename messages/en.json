@@ -10,31 +10,55 @@
         "welcome": "Welcome",
         "intro": ""
     },
-    "Features": {
-        "customTitle": "Custom Design",
-        "customContent": "Completely custom designes tailored for you and your bussiness",
-        "colorTitle": "Light & Dark Mode",
-        "colorContent": "Automatic preference detection based on browser settings and color toggle button",
-        "respTitle": "Responsive",
-        "respContent": "Designed to look good on any screen size",
-        "interTitle": "Internationalization",
-        "interContent": "Change the language of your site with a click and bring your message closer to all your potential customers",
-        "seoTitle": "SEO",
-        "seoContent": "With our Search Engine Optimization obtain the visibility you deserve",
-        "accesibTitle": "Accesibility",
-        "accesibContent": "Accesibility content",
-        "manageTitle": "Self Managable",
-        "manageContent": "Get administrator access to edit parts of your website without downtime",
-        "dbTitle": "Database Administration",
-        "dbContent": "New database creation or shared database integration",
-        "ecomTitle": "E-commerce",
-        "ecomContent": "Integration with your other E-commerce platforms",
-        "adsTitle": "Google Ads",
-        "adsContent": "Use Google Ads in your website",
-        "analTitle": "Google Analytics",
-        "analContent": "Benefit with Google Analytics services to understand better your visitors",
-        "apiTitle": "API Integration",
-        "apiContent": "Get your favourite Aplication Program Interface directly in your website"
+    "Features2": {
+        "custom": {
+            "title": "Custom Design",
+            "content": "Completely custom designes tailored for you and your bussiness"
+        },
+        "color": {
+            "title": "Light & Dark Mode",
+            "content": "Automatic preference detection based on browser settings and color toggle button"
+        },
+        "resp": {
+            "title": "Responsive",
+            "content": "Designed to look good on any screen size"
+        },
+        "inter": {
+            "title": "Internationalization",
+            "content": "Change the language of your site with a click and bring your message closer to all your potential customers"
+        },
+        "seo": {
+            "title": "SEO",
+            "content": "With our Search Engine Optimization obtain the visibility you deserve"
+        },
+        "accesib": {
+            "title": "Accesibility",
+            "content": "Accesibility content"
+        },
+        "manage": {
+            "title": "Self Managable",
+            "content": "Get administrator access to edit parts of your website without downtime"
+        },
+        "db": {
+            "title": "Database Administration",
+            "content": "New database creation or shared database integration"
+        },
+        "ecom": {
+            "title": "E-commerce",
+            "content": "Integration with your other E-commerce platforms"
+        },
+        "ads": {
+            "title": "Google Ads",
+            "content": "Use Google Ads in your website"
+        },
+        "anal": {
+            "title": "Google Analytics",
+            "content": "Benefit with Google Analytics services to understand better your visitors"
+        },
+        "api": {
+            "title": "API Integration",
+            "content": "Get your favourite Aplication Program Interface directly in your website"
+        }
     },
     "Services": {
         "hostTitle": "Hosting",
