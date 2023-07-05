@@ -18,12 +18,26 @@ import { useState } from "react";
 import Image from "next/image";
 
 export default function Features({ dictionary }) {
-    const [down, setDown] = useState(false);
+    const [list, setList] = useState(false);
+    /* maybe --- 
+                    const [values, setValues] = useState({
+                    value1: "",
+                    value2: "",
+                    value3: "",
+                    ...
+                    });
+
+                    const changeValue = (index, value) => {
+                    const newValues = { ...values };
+                    newValues[index] = value;
+                    setValues(newValues);
+                    };
+    */
     const bgImages = [customBG, colorModeBG, responsiveBG, interBG, seoBG, accesibBG, manageBG, dbBG, ecommBG, adsBG, analBG, apiBG];
 
     function toggleFeatures() {
         document.getElementById('featuresList').classList.toggle('hidden');
-        setDown(down ? false : true);
+        setList(!list);
     }
 
     function toggleFeature(e) {
@@ -87,7 +101,7 @@ export default function Features({ dictionary }) {
             <div className="w-screen my-6 flex flex-col justify-center items-center lg:hidden">
                 <button className="border rounded-lg w-full inline-flex justify-between text-2xl p-4" type="button" onClick={toggleFeatures}>
                     <h2>Features</h2> 
-                    {down ? <ArrowDown props={...{width:"4", data:"down"}}/> : <ArrowUp props={...{width:"4", data:"up", class:""}} />}
+                    {list ? <ArrowDown props={...{width:"4", data:"down"}}/> : <ArrowUp props={...{width:"4", data:"up", class:""}} />}
                 </button>
                 <div id="featuresList" className="shadow w-11/12">
                     <ul className="py-2 text-gray-700 dark:text-gray-200 divide-y divide-current rounded-lg">
