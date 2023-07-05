@@ -12,75 +12,69 @@ import adsBG from "@/public/adsBG.jpg";
 import analBG from "@/public/analBG.png";
 import apiBG from "@/public/apiBG.jpg";
 import ArrowDown from "../icons/ArrowDown";
-import ArrowRight from "../icons/ArrowRight";
 import ArrowUp from "../icons/ArrowUp";
 import { useState } from "react";
 import Image from "next/image";
 
 export default function Features({ dictionary }) {
-    const [list, setList] = useState(false);
-    /* maybe --- 
-                    const [values, setValues] = useState({
-                    value1: "",
-                    value2: "",
-                    value3: "",
-                    ...
-                    });
-
-                    const changeValue = (index, value) => {
-                    const newValues = { ...values };
-                    newValues[index] = value;
-                    setValues(newValues);
-                    };
-    */
+    const [arrows, setArrows] = useState({
+        list: false,
+        custom: true,
+        color: true,
+        resp: true,
+        inter: true,
+        seo: true,
+        accesib: true,
+        manage: true,
+        db: true,
+        ecom: true,
+        ads: true,
+        anal: true,
+        api: true
+    });
+    
     const bgImages = [customBG, colorModeBG, responsiveBG, interBG, seoBG, accesibBG, manageBG, dbBG, ecommBG, adsBG, analBG, apiBG];
 
-    function toggleFeatures() {
-        document.getElementById('featuresList').classList.toggle('hidden');
-        setList(!list);
+    function toggleFeature(e, arrow) {
+        const newArrows = { ...arrows };
+        newArrows[arrow] = !arrows[arrow]
+        setArrows(newArrows);
+        if (arrow === 'list') {
+            document.getElementById('featuresList').classList.toggle('hidden');
+        } else {
+            let desc = e.currentTarget.lastElementChild;
+            desc.classList.toggle('descAppear');
+        }
     }
 
-    function toggleFeature(e) {
-        let desc = e.currentTarget.lastElementChild,
-            data = e.currentTarget.dataset.feat,
-            img = document.querySelector(`[data-value="img-${data}"]`),
-            down = document.querySelector(`[data-value="down-${data}"]`),
-            up = document.querySelector(`[data-value="up-${data}"]`);
-        desc.classList.toggle('descAppear');
-        if (img) img.classList.toggle('blur-sm');
-        if (down) down.classList.toggle('hidden');
-        if (up) up.classList.toggle('hidden'); 
-    }
-
-    const renderedFeaturesBig = Object.keys(dictionary.Features2).map((key, idx) => {
+    const renderedFeaturesBig = Object.keys(dictionary.Features).map((key, idx) => {
         return (
-            <div className="featCard" onClick={toggleFeature} data-feat={key} key={key}>
+            <div className="featCard" onClick={(e) => toggleFeature(e, key)} data-feat={key} key={key}>
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-                    <Image src={bgImages[idx]} alt={`${key} background image`} fill style={{objectFit: "cover"}} data-value={`img-${key}`}/>
+                    <Image src={bgImages[idx]} alt={`${key} background image`} fill style={{objectFit: "cover"}} className={arrows[key] ? '' : 'blur-sm'}/>
                 </div>
                 <h3 className="z-10 text-4xl">
-                    {dictionary.Features2[key].title}
+                    {dictionary.Features[key].title}
                 </h3>
                 <p className="z-10 featDesc text-justify mt-5">
-                    {dictionary.Features2[key].content}
+                    {dictionary.Features[key].content}
                 </p>
             </div>     
         );
     });
 
-    const renderedFeaturesSmall = Object.keys(dictionary.Features2).map((key) => {
+    const renderedFeaturesSmall = Object.keys(dictionary.Features).map((key) => {
         return (
             <li key={key}>
-                <button className="featBtn" onClick={toggleFeature} data-feat={key}>
+                <button className="featBtn" onClick={(e) => {toggleFeature(e, key);}}>
                     <div className="flex items-center">
-                        <ArrowDown props={...{width:"2", data:`down-${key}`}} />
-                        <ArrowUp props={...{width:"2", data:`up-${key}`, class:"hidden"}} />
+                        {arrows[key] ? <ArrowDown width="2" /> : <ArrowUp width="2" />}
                         <h3 className="ml-6">
-                            {dictionary.Features2[key].title}
+                            {dictionary.Features[key].title}
                         </h3>
                     </div>
                     <p className="featDesc">
-                        {dictionary.Features2[key].content}
+                        {dictionary.Features[key].content}
                     </p>
                 </button>
             </li>
@@ -99,9 +93,9 @@ export default function Features({ dictionary }) {
 
             {/* For smaller screens */}
             <div className="w-screen my-6 flex flex-col justify-center items-center lg:hidden">
-                <button className="border rounded-lg w-full inline-flex justify-between text-2xl p-4" type="button" onClick={toggleFeatures}>
+                <button className="border rounded-lg w-full inline-flex justify-between text-2xl p-4" type="button" onClick={(e) => toggleFeature(e, 'list')}>
                     <h2>Features</h2> 
-                    {list ? <ArrowDown props={...{width:"4", data:"down"}}/> : <ArrowUp props={...{width:"4", data:"up", class:""}} />}
+                    {arrows["list"] ? <ArrowDown width="4" /> : <ArrowUp width="4" />}
                 </button>
                 <div id="featuresList" className="shadow w-11/12">
                     <ul className="py-2 text-gray-700 dark:text-gray-200 divide-y divide-current rounded-lg">
