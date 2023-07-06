@@ -44,43 +44,53 @@ export default function Header({ messages }) {
     }
 
     return (
-        <header className="flex">
-            <div className="w-full p-4 flex justify-between">
+        <>
+            {/* For Larger Screens */}
+            <header className="hidden lg:flex">
+                <div className="w-full p-4 flex justify-between">
 
-                {/* Title: */}
-                <h1 className="italic text-4xl font-extrabold text-center p-6 h-full">
-                    {`${messages.Title} ${messages.Route[route]}`} 
-                </h1>
+                    {/* Title: */}
+                    <h1 className="italic text-4xl font-extrabold text-center p-6 h-full">
+                        {`${messages.Title} ${messages.Route[route]}`} 
+                    </h1>
 
-                {/* Nav: */}
-                <nav className="flex justify-evenly items-end p-6 h-full space-x-4">
-                    <Link id="home" className="navBtn" href={`/${locale}`}>
-                        {messages.Route.home}
-                    </Link>
-                    <Link id="work" className="navBtn" href={`/${locale}/work`}>
-                        {messages.Route.work}
-                    </Link>
-                    <Link id="cv" className="navBtn" href={`/${locale}/cv`}>
-                        {messages.Route.cv}
-                    </Link>
-                    <Link id="contact" className="navBtn" href={`/${locale}/contact`} >
-                        {messages.Route.contact}
-                    </Link>
-                </nav>
-                
-                {/* Settings: */}
-                <div className="flex justify-end items-center p-4 space-x-4">
-                    {/* Lang */}
-                    <Link className="p-[11px] ring-4 ring-gray-700 dark:ring-gray-200 rounded-lg" href={redirectLang(locale)}>
-                        {locale === 'en' ? 'ES' : 'EN'}
-                    </Link>
-                    {/* Theme */}
-                    <button type="button" className="h-fit ring-4 ring-gray-700 dark:ring-gray-200 rounded-lg p-[11px]" onClick={toggleTheme}>
-                        {dark ? <LightIcon /> : <DarkIcon />}
-                    </button>
+                    {/* Nav: */}
+                    <nav className="flex justify-evenly items-end p-6 h-full space-x-4">
+                        <Link id="home" className="navBtn" href={`/${locale}`}>
+                            {messages.Route.home}
+                        </Link>
+                        <Link id="work" className="navBtn" href={`/${locale}/work`}>
+                            {messages.Route.work}
+                        </Link>
+                        <Link id="cv" className="navBtn" href={`/${locale}/cv`}>
+                            {messages.Route.cv}
+                        </Link>
+                        <Link id="contact" className="navBtn" href={`/${locale}/contact`} >
+                            {messages.Route.contact}
+                        </Link>
+                    </nav>
+                    
+                    {/* Settings: */}
+                    <div className="flex justify-end items-center p-4 space-x-4">
+                        {/* Lang */}
+                        <Link className="p-[11px] ring-4 ring-gray-700 dark:ring-gray-200 rounded-lg" href={redirectLang(locale)}>
+                            {locale === 'en' ? 'ES' : 'EN'}
+                        </Link>
+                        {/* Theme */}
+                        <button type="button" className="h-fit ring-4 ring-gray-700 dark:ring-gray-200 rounded-lg p-[11px]" onClick={toggleTheme}>
+                            {dark ? <LightIcon /> : <DarkIcon />}
+                        </button>
+                    </div>
+
                 </div>
+            </header>
 
-            </div>
-        </header>
+            {/* For Smaller Screens */}
+            <header className="lg:hidden">
+                <div className="flex">
+
+                </div>
+            </header>
+        </>
     );
 }

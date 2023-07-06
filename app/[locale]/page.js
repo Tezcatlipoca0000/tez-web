@@ -4,6 +4,8 @@ import { getDictionary } from '../../get-dictionary';
 import Features from './components/Features';
 import Services from './components/Services';
 import Prices from './components/Prices';
+import FAQ from './components/FAQ';
+import Demos from './components/Demos';
 
 
 export default async function Home({params}) {
@@ -26,6 +28,8 @@ export default async function Home({params}) {
           <Features dictionary={dictionary} />
           <Services dictionary={dictionary} />
           <Prices dictionary={dictionary} />
+          <FAQ dictionary={dictionary} />
+          <Demos dictionary={dictionary} />
           
         </main>
       </>

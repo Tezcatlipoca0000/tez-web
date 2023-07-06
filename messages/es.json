@@ -71,15 +71,15 @@
         },
         "write": {
             "title": "Copywrite",
-            "content": "Have the right message to boost your productivity"
+            "content": "Ten el correcto mensaje para mejorar tu productividad"
         },
         "img": {
             "title": "Image Licencing",
-            "content": "Make your website more attractive with the correct images"
+            "content": "Haz tu sitio más atractivo con las imágenes correctas"
         },
         "maint": {
-            "title": "Maintanence",
-            "content": "Keep your website up to date and secure"
+            "title": "Mantenimiento",
+            "content": "Manten tu sitio seguro y actualizado"
         }
     }
 }
