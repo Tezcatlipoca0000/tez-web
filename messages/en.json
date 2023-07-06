@@ -61,15 +61,25 @@
         }
     },
     "Services": {
-        "hostTitle": "Hosting",
-        "hostContent": "Manage the hosting services for your website",
-        "domTitle": "Domain",
-        "domContent": "Reserve your prefered domain name",
-        "writeTitle": "Copywrite",
-        "writeContent": "Have the right message to boost your productivity",
-        "imgTitle": "Image Licencing",
-        "imgContent": "Make your website more attractive with the correct images",
-        "maintTitle": "Maintanence",
-        "maintContent": "Keep your website up to date and secure"
+        "host": {
+            "title": "Hosting",
+            "content": "Manage the hosting services for your website"
+        },
+        "dom": {
+            "title": "Domain",
+            "content": "Reserve your prefered domain name"
+        },
+        "write": {
+            "title": "Copywrite",
+            "content": "Have the right message to boost your productivity"
+        },
+        "img": {
+            "title": "Image Licencing",
+            "content": "Make your website more attractive with the correct images"
+        },
+        "maint": {
+            "title": "Maintanence",
+            "content": "Keep your website up to date and secure"
+        }
     }
 }

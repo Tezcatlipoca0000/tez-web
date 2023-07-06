@@ -8,28 +8,78 @@
     },
     "Home": {
         "welcome": "Bienvenido",
-        "intro": "",
-        "customTitle": "Diseños Personalizados",
-        "customContent": "Diseños completamente hechos a tu medida y la de tu negocio",
-        "colorTitle": "Modos: Oscuro & Claro",
-        "colorContent": "Detección automática de las preferencias del navegador y boton para cambiar a modo oscuro",
-        "respTitle": "Diseños Responsivos",
-        "respContent": "Diseñado para verse bien en cualquier tamaño de pantalla",
-        "interTitle": "Internacionalizado",
-        "interContent": "Cambia el lenguaje de tu sitio con un boton y acerca tu mensaje a todos tus posibles clientes",
-        "seoTitle": "SEO",
-        "seoContent": "Con la optimización de los motores de busqueda (SEO por sus siglas en inglés) obten la visibilidad que tu mereces",
-        "featTitle": "Características Adicionales",
-        "otherFeats": {
-            "manageTitle": "Auto-Administrable",
-            "manageContent": "Obten acceso de administrador para editar partes del contenido sin desconectar tu sitio",
-            "dbTitle": "Administración de Bases de Datos",
-            "dbContent": "Creación de nuevas bases de datos o integración de bases de datos compartidas"
+        "intro": ""
+    },
+    "Features": {
+        "custom": {
+            "title": "Diseño Personalizado",
+            "content": "Diseños personalizados completamente hechos a la medida para ti y tu negocio"
         },
-        "servTitle": "Servicios Adicionales",
-        "otherServ": {
-            "hostTitle": "Hosting",
-            "hostContent": "Servicios de hosting para tu stio web"
+        "color": {
+            "title": "Modo Claro & Oscuro",
+            "content": "Detección automática basada en las preferencias del navegador y boton para cambiar manualmente el modo claro y oscuro"
+        },
+        "resp": {
+            "title": "Responsivo",
+            "content": "Diseñado para verse bien en cualquier tamaño de pantalla"
+        },
+        "inter": {
+            "title": "Internacionalización",
+            "content": "Cambia el lenguaje de tu sitio con un boton y lleva tu mensaje más cerca de todos tus clientes potenciales"
+        },
+        "seo": {
+            "title": "SEO",
+            "content": "Con la optimización de los motores de búsqueda (SEO por su siglas en inglés) obten la visibilidad que mereces"
+        },
+        "accesib": {
+            "title": "Accesibilidad",
+            "content": "Contenido de accesibilidad"
+        },
+        "manage": {
+            "title": "Auto-Manejable",
+            "content": "Solicita acceso de administrador para editar partes de tu sitio sin desconectarlo"
+        },
+        "db": {
+            "title": "Administración de Base de Datos",
+            "content": "Creación de nuevas bases de datos o integración de una existente"
+        },
+        "ecom": {
+            "title": "E-commerce",
+            "content": "Integración con tus otras plataformas de E-commerce (comercio electrónico en inglés)"
+        },
+        "ads": {
+            "title": "Google Ads",
+            "content": "Usa google ads en tu sitio web"
+        },
+        "anal": {
+            "title": "Google Analytics",
+            "content": "Beneficiate con los servicios de Google Analytics para entender mejor a los visitantes de tu sitio"
+        },
+        "api": {
+            "title": "Integración de API",
+            "content": "Integra tu API favorita directamente en tu sitio web"
+        }
+    },
+    "Services": {
+        "host": {
+            "title": "Hosting",
+            "content": "Manejamos el hosting de tu sitio web"
+        },
+        "dom": {
+            "title": "Domain",
+            "content": "Reservamos tu nombre de dominio preferido"
+        },
+        "write": {
+            "title": "Copywrite",
+            "content": "Have the right message to boost your productivity"
+        },
+        "img": {
+            "title": "Image Licencing",
+            "content": "Make your website more attractive with the correct images"
+        },
+        "maint": {
+            "title": "Maintanence",
+            "content": "Keep your website up to date and secure"
         }
     }
 }

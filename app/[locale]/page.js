@@ -3,6 +3,7 @@ import Header from './components/Header';
 import { getDictionary } from '../../get-dictionary';
 import Features from './components/Features';
 import Services from './components/Services';
+import Prices from './components/Prices';
 
 
 export default async function Home({params}) {
@@ -22,32 +23,11 @@ export default async function Home({params}) {
             {dictionary.Home.intro}
           </h2>
 
-          <Features dictionary={dictionary}/>
-          <Services dictionary={dictionary}/>
+          <Features dictionary={dictionary} />
+          <Services dictionary={dictionary} />
+          <Prices dictionary={dictionary} />
           
         </main>
       </>
   )
 }
-
-/*
-custom --> tailored for you
-light/dark mode --> automatic detection & toggle option
-responsive --> Beautiful design for both mobile & desktop
-internationalization --> get your message accross
-SEO --> Be visible
-Other features --> 
-    Self-Manageble --> Admin access to edit parts of the website without downtime
-    DB integration --> SQL, mongodb, json db
-    ecommerce integration 
-    google ads integration
-    google analytics integration
-    API integration
-Other Services --> 
-    Hosting
-    Domain Purchase
-    Copywrite
-    Image Licencing
-    Maintenance
-    Analytics report <-- DELETED
-*/
