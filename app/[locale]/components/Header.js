@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from 'next/navigation';
 import DarkIcon from "../icons/DarkIcon";
 import LightIcon from "../icons/LightIcon";
+import MenuIcon from "../icons/MenuIcon";
 
 export default function Header({ messages }) {
     const pathname = usePathname();
@@ -41,6 +42,10 @@ export default function Header({ messages }) {
         } else {
             return `/${locale === 'en' ? 'es' : 'en'}`;
         }
+    }
+
+    function showMenu() {
+        document.getElementById('headerMenu').classList.toggle('hidden');
     }
 
     return (
@@ -86,9 +91,56 @@ export default function Header({ messages }) {
             </header>
 
             {/* For Smaller Screens */}
-            <header className="lg:hidden">
-                <div className="flex">
-
+            <header className="w-screen lg:hidden">
+                <div className="flex w-full items-center">
+                    <h1 className="w-11/12 italic text-3xl font-extrabold text-center p-6">
+                        {`${messages.Title} ${messages.Route[route]}`}    
+                    </h1>
+                    <div className="w-1/12 mr-4">
+                        <button className="w-8 h-8" onClick={showMenu}>
+                            <MenuIcon />
+                        </button>
+                    </div>
+                </div>
+                <div id="headerMenu" className="w-full flex hidden justify-end">
+                    <div className="border w-3/12 relative right-4">
+                        <div>
+                            Settings:
+                        </div>
+                        <div>
+                            <Link className="p-[11px] ring-2 ring-gray-700 dark:ring-gray-200 rounded-lg" href={redirectLang(locale)}>
+                                {locale === 'en' ? 'ES' : 'EN'}
+                            </Link>
+                        </div>
+                        <div>
+                            <button type="button" className="h-fit ring-2 ring-gray-700 dark:ring-gray-200 rounded-lg p-[11px]" onClick={toggleTheme}>
+                                {dark ? <LightIcon /> : <DarkIcon />}
+                            </button>
+                        </div>
+                        <div>
+                            Nav:
+                        </div>
+                        <div>
+                            <Link id="home" className="navBtn" href={`/${locale}`}>
+                                {messages.Route.home}
+                            </Link>
+                        </div>
+                        <div>
+                            <Link id="work" className="navBtn" href={`/${locale}/work`}>
+                                {messages.Route.work}
+                            </Link>
+                        </div>
+                        <div>
+                            <Link id="cv" className="navBtn" href={`/${locale}/cv`}>
+                                {messages.Route.cv}
+                            </Link>
+                        </div>
+                        <div>
+                            <Link id="contact" className="navBtn" href={`/${locale}/contact`} >
+                                {messages.Route.contact}
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </header>
         </>
