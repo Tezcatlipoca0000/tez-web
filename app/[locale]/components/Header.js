@@ -93,49 +93,53 @@ export default function Header({ messages }) {
             {/* For Smaller Screens */}
             <header className="w-screen lg:hidden">
                 <div className="flex w-full items-center">
-                    <h1 className="w-11/12 italic text-3xl font-extrabold text-center p-6">
-                        {`${messages.Title} ${messages.Route[route]}`}    
-                    </h1>
-                    <div className="w-1/12 mr-4">
+                    <div className="w-1/12 ml-4">
                         <button className="w-8 h-8" onClick={showMenu}>
                             <MenuIcon />
                         </button>
                     </div>
+                    <h1 className="w-11/12 italic text-3xl font-extrabold text-center p-6">
+                        {`${messages.Title} ${messages.Route[route]}`}    
+                    </h1>
                 </div>
-                <div id="headerMenu" className="w-full flex hidden justify-end">
-                    <div className="border w-3/12 relative right-4">
-                        <div>
-                            Settings:
+                <div id="headerMenu" className="w-full flex hidden justify-start">
+                    <div className="border w-5/12 md:w-3/12 absolute left-4 z-10 bg-white dark:bg-black">
+                        <div className="bg-slate-200 dark:bg-neutral-900 p-4">
+                            <p>
+                                Settings:
+                            </p>
                         </div>
-                        <div>
-                            <Link className="p-[11px] ring-2 ring-gray-700 dark:ring-gray-200 rounded-lg" href={redirectLang(locale)}>
+                        <div className="flex items-center justify-between p-4">
+                            <p>
+                                Language:
+                            </p>
+                            <Link className="p-[6px] ring-2 ring-gray-700 dark:ring-gray-200 rounded-lg" href={redirectLang(locale)}>
                                 {locale === 'en' ? 'ES' : 'EN'}
                             </Link>
                         </div>
-                        <div>
-                            <button type="button" className="h-fit ring-2 ring-gray-700 dark:ring-gray-200 rounded-lg p-[11px]" onClick={toggleTheme}>
+                        <div className="flex items-center justify-between p-4">
+                            <p>
+                                Color Mode:
+                            </p>
+                            <button type="button" className="h-fit ring-2 ring-gray-700 dark:ring-gray-200 rounded-lg p-[6px]" onClick={toggleTheme}>
                                 {dark ? <LightIcon /> : <DarkIcon />}
                             </button>
                         </div>
-                        <div>
-                            Nav:
+                        <div className="bg-slate-200 dark:bg-neutral-900 p-4">
+                            <p>
+                                Nav:
+                            </p>
                         </div>
-                        <div>
+                        <div className="flex flex-col space-y-4 px-4 pt-4 pb-4">
                             <Link id="home" className="navBtn" href={`/${locale}`}>
                                 {messages.Route.home}
                             </Link>
-                        </div>
-                        <div>
                             <Link id="work" className="navBtn" href={`/${locale}/work`}>
                                 {messages.Route.work}
                             </Link>
-                        </div>
-                        <div>
                             <Link id="cv" className="navBtn" href={`/${locale}/cv`}>
                                 {messages.Route.cv}
                             </Link>
-                        </div>
-                        <div>
                             <Link id="contact" className="navBtn" href={`/${locale}/contact`} >
                                 {messages.Route.contact}
                             </Link>
