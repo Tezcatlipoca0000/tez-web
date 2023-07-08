@@ -11,6 +11,7 @@ export default function Header({ messages }) {
     const segments = pathname.split('/');
     const locale = segments[1]
     const route = segments.length === 2 ? 'home' : segments[2];
+    const routes = ['work', 'cv', 'contact'];
     const [dark, setDark] = useState(true); 
 
     useEffect(() => {
@@ -49,6 +50,16 @@ export default function Header({ messages }) {
         document.getElementById('headerMenu').classList.toggle('hidden');
     }
 
+    const renderedNav = Object.keys(messages.Route).map((key, idx) => {
+        return (
+            <>
+                <Link key={key} className={`navBtn ${idx === 0 ? 'home' : routes[idx - 1]}Nav`} href={`/${locale}${idx === 0 ? '' : '/' + routes[idx - 1]}`}>
+                    {messages.Route[key]}
+                </Link>
+            </>
+        );
+    });
+
     return (
         <>
             {/* For Larger Screens */}
@@ -62,18 +73,7 @@ export default function Header({ messages }) {
 
                     {/* Nav: */}
                     <nav className="flex justify-evenly items-end p-6 h-full space-x-4">
-                        <Link className="navBtn homeNav" href={`/${locale}`}>
-                            {messages.Route.home}
-                        </Link>
-                        <Link className="navBtn workNav" href={`/${locale}/work`}>
-                            {messages.Route.work}
-                        </Link>
-                        <Link className="navBtn cvNav" href={`/${locale}/cv`}>
-                            {messages.Route.cv}
-                        </Link>
-                        <Link className="navBtn contactNav" href={`/${locale}/contact`} >
-                            {messages.Route.contact}
-                        </Link>
+                        {renderedNav}
                     </nav>
                     
                     {/* Settings: */}
@@ -132,18 +132,7 @@ export default function Header({ messages }) {
                             </p>
                         </div>
                         <div className="flex flex-col space-y-4 px-4 pt-4 pb-4">
-                            <Link className="navBtn homeNav" href={`/${locale}`}>
-                                {messages.Route.home}
-                            </Link>
-                            <Link className="navBtn workNav" href={`/${locale}/work`}>
-                                {messages.Route.work}
-                            </Link>
-                            <Link className="navBtn cvNav" href={`/${locale}/cv`}>
-                                {messages.Route.cv}
-                            </Link>
-                            <Link className="navBtn contactNav" href={`/${locale}/contact`} >
-                                {messages.Route.contact}
-                            </Link>
+                            {renderedNav}
                         </div>
                     </div>
                 </div>
