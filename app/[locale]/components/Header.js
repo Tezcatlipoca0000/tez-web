@@ -15,10 +15,11 @@ export default function Header({ messages }) {
 
     useEffect(() => {
         // add class to current nav button
-        let navEl = document.getElementById(route);
-        navEl.classList.remove('navBtn');
-        navEl.classList.add('activeBtn');
-
+        let navEls = document.getElementsByClassName(`${route}Nav`);
+        for (const el of navEls) {
+            el.classList.remove('navBtn');
+            el.classList.add('activeBtn');
+        }
         // Display correct theme button
         setDark(document.documentElement.classList.contains('dark'));
     }, []);
@@ -61,16 +62,16 @@ export default function Header({ messages }) {
 
                     {/* Nav: */}
                     <nav className="flex justify-evenly items-end p-6 h-full space-x-4">
-                        <Link id="home" className="navBtn" href={`/${locale}`}>
+                        <Link className="navBtn homeNav" href={`/${locale}`}>
                             {messages.Route.home}
                         </Link>
-                        <Link id="work" className="navBtn" href={`/${locale}/work`}>
+                        <Link className="navBtn workNav" href={`/${locale}/work`}>
                             {messages.Route.work}
                         </Link>
-                        <Link id="cv" className="navBtn" href={`/${locale}/cv`}>
+                        <Link className="navBtn cvNav" href={`/${locale}/cv`}>
                             {messages.Route.cv}
                         </Link>
-                        <Link id="contact" className="navBtn" href={`/${locale}/contact`} >
+                        <Link className="navBtn contactNav" href={`/${locale}/contact`} >
                             {messages.Route.contact}
                         </Link>
                     </nav>
@@ -78,11 +79,11 @@ export default function Header({ messages }) {
                     {/* Settings: */}
                     <div className="flex justify-end items-center p-4 space-x-4">
                         {/* Lang */}
-                        <Link className="p-[11px] ring-4 ring-gray-700 dark:ring-gray-200 rounded-lg" href={redirectLang(locale)}>
+                        <Link className="p-[11px] ring-4 ring-gray-700 dark:ring-gray-200 rounded-lg hover:bg-[rgb(255,255,255)] dark:hover:bg-[rgb(20,20,20)]" href={redirectLang(locale)}>
                             {locale === 'en' ? 'ES' : 'EN'}
                         </Link>
                         {/* Theme */}
-                        <button type="button" className="h-fit ring-4 ring-gray-700 dark:ring-gray-200 rounded-lg p-[11px]" onClick={toggleTheme}>
+                        <button type="button" className="h-fit ring-4 ring-gray-700 dark:ring-gray-200 rounded-lg p-[11px] hover:bg-[rgb(255,255,255)] dark:hover:bg-[rgb(20,20,20)]" onClick={toggleTheme}>
                             {dark ? <LightIcon /> : <DarkIcon />}
                         </button>
                     </div>
@@ -104,7 +105,7 @@ export default function Header({ messages }) {
                 </div>
                 <div id="headerMenu" className="w-full flex hidden justify-start">
                     <div className="border w-5/12 md:w-3/12 absolute left-4 z-10 bg-white dark:bg-black">
-                        <div className="bg-slate-200 dark:bg-neutral-900 p-4">
+                        <div className="bg-neutral-50 dark:bg-neutral-900 p-4">
                             <p>
                                 Settings:
                             </p>
@@ -113,7 +114,7 @@ export default function Header({ messages }) {
                             <p>
                                 Language:
                             </p>
-                            <Link className="p-[6px] ring-2 ring-gray-700 dark:ring-gray-200 rounded-lg" href={redirectLang(locale)}>
+                            <Link className="p-[6px] ring-2 ring-gray-700 dark:ring-gray-200 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-900" href={redirectLang(locale)}>
                                 {locale === 'en' ? 'ES' : 'EN'}
                             </Link>
                         </div>
@@ -121,26 +122,26 @@ export default function Header({ messages }) {
                             <p>
                                 Color Mode:
                             </p>
-                            <button type="button" className="h-fit ring-2 ring-gray-700 dark:ring-gray-200 rounded-lg p-[6px]" onClick={toggleTheme}>
+                            <button type="button" className="h-fit ring-2 ring-gray-700 dark:ring-gray-200 rounded-lg p-[6px] hover:bg-neutral-50 dark:hover:bg-neutral-900" onClick={toggleTheme}>
                                 {dark ? <LightIcon /> : <DarkIcon />}
                             </button>
                         </div>
-                        <div className="bg-slate-200 dark:bg-neutral-900 p-4">
+                        <div className="bg-neutral-50 dark:bg-neutral-900 p-4">
                             <p>
                                 Nav:
                             </p>
                         </div>
                         <div className="flex flex-col space-y-4 px-4 pt-4 pb-4">
-                            <Link id="home" className="navBtn" href={`/${locale}`}>
+                            <Link className="navBtn homeNav" href={`/${locale}`}>
                                 {messages.Route.home}
                             </Link>
-                            <Link id="work" className="navBtn" href={`/${locale}/work`}>
+                            <Link className="navBtn workNav" href={`/${locale}/work`}>
                                 {messages.Route.work}
                             </Link>
-                            <Link id="cv" className="navBtn" href={`/${locale}/cv`}>
+                            <Link className="navBtn cvNav" href={`/${locale}/cv`}>
                                 {messages.Route.cv}
                             </Link>
-                            <Link id="contact" className="navBtn" href={`/${locale}/contact`} >
+                            <Link className="navBtn contactNav" href={`/${locale}/contact`} >
                                 {messages.Route.contact}
                             </Link>
                         </div>

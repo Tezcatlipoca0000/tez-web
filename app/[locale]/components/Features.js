@@ -66,7 +66,7 @@ export default function Features({ dictionary }) {
 
     const renderedFeaturesSmall = Object.keys(dictionary.Features).map((key) => {
         return (
-            <li key={key}>
+            <li key={`small-${key}`}>
                 <button className="featBtn" onClick={(e) => {toggleFeature(e, key);}}>
                     <div className="flex items-center">
                         {features[key] ? <ArrowDown width="2" /> : <ArrowUp width="2" />}
