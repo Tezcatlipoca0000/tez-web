@@ -105,7 +105,7 @@ export default function Header({ messages }) {
                 </div>
                 <div id="headerMenu" className="w-full flex hidden justify-start">
                     <div className="border w-5/12 md:w-3/12 absolute left-4 z-10 bg-white dark:bg-black">
-                        <div className="bg-neutral-50 dark:bg-neutral-900 p-4">
+                        <div className="bg-neutral-100 dark:bg-neutral-900 p-4">
                             <p>
                                 Settings:
                             </p>
@@ -114,7 +114,7 @@ export default function Header({ messages }) {
                             <p>
                                 Language:
                             </p>
-                            <Link className="p-[6px] ring-2 ring-gray-700 dark:ring-gray-200 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-900" href={redirectLang(locale)}>
+                            <Link className="p-[6px] ring-2 ring-gray-700 dark:ring-gray-200 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-900" href={redirectLang(locale)}>
                                 {locale === 'en' ? 'ES' : 'EN'}
                             </Link>
                         </div>
@@ -122,11 +122,11 @@ export default function Header({ messages }) {
                             <p>
                                 Color Mode:
                             </p>
-                            <button type="button" className="h-fit ring-2 ring-gray-700 dark:ring-gray-200 rounded-lg p-[6px] hover:bg-neutral-50 dark:hover:bg-neutral-900" onClick={toggleTheme}>
+                            <button type="button" className="h-fit ring-2 ring-gray-700 dark:ring-gray-200 rounded-lg p-[6px] hover:bg-neutral-100 dark:hover:bg-neutral-900" onClick={toggleTheme}>
                                 {dark ? <LightIcon /> : <DarkIcon />}
                             </button>
                         </div>
-                        <div className="bg-neutral-50 dark:bg-neutral-900 p-4">
+                        <div className="bg-neutral-100 dark:bg-neutral-900 p-4">
                             <p>
                                 Nav:
                             </p>

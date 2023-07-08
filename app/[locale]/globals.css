@@ -50,11 +50,11 @@
                                                     /* **** Header **** */
 
   .navBtn {
-    @apply inline-flex items-center justify-center lg:px-8 py-2 text-xl rounded-lg border-l border-r border-black hover:border dark:border-white hover:bg-[rgb(255,255,255)] dark:hover:bg-[rgb(20,20,20)] cursor-pointer;
+    @apply inline-flex items-center justify-center lg:px-8 py-2 text-xl rounded-lg border-l border-r border-black hover:border dark:border-white hover:bg-neutral-100 lg:hover:bg-[rgb(255,255,255)] dark:hover:bg-[rgb(20,20,20)] cursor-pointer;
   }
 
   .activeBtn {
-    @apply navBtn border border-black dark:border-white bg-[rgb(255,255,255)] dark:bg-[rgb(20,20,20)] cursor-default;
+    @apply navBtn border border-black dark:border-white bg-neutral-100 lg:bg-[rgb(255,255,255)] dark:bg-[rgb(20,20,20)] cursor-default;
   }
 
                                                     /* **** Features **** */
