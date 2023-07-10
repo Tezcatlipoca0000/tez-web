@@ -1,17 +1,76 @@
+'use client';
+import { useState, useEffect, useCallback } from "react";
+
 export default function Prices({ dictionary }) {
+    const feats = Object.keys(dictionary.Features);
+    const servs = Object.keys(dictionary.Services);
+    const rows = [...feats, ...servs];
+    const priceList = {};
+
+    rows.forEach((key) => {
+        priceList[key] = '--';
+    });
+
+    const [priceState, setPriceState] = useState(priceList);
+    const [optionState, setOptionState] = useState('3');
+
+    useEffect(() => {
+        const defaultPrices = {...priceList};
+        defaultPrices.custom = "$3,000";
+        setPriceState(defaultPrices);
+    },{});
+
+    const priceTabulator = {
+        custom : (option) => {
+            const newPrices = {...priceState};
+            if (option === "3") {
+                newPrices.custom = "$3,000";
+                localStorage.custom = '3';
+            } else if (option === "6") {
+                newPrices.custom = "$6,000";
+                localStorage.custom = '6';
+            } else if (option === "7") {
+                newPrices.custom = "$9,000 - $12,000";
+                localStorage.custom = '7';
+            }
+            setPriceState(newPrices);
+        },
+    };
+
+    function updatePrice(e) {
+        const newValue = e.target.value; 
+        const key = e.target.dataset.key;
+        priceTabulator[key](newValue);
+    }
 
     const components = {
         customOption : () => {
+            const onChangeInput = useCallback((e) => {
+                const option = e.target.value;
+                const newPrices = {...priceState};
+                if (option === "3") {
+                    newPrices.custom = "$3,000";
+                    localStorage.custom = '3';
+                } else if (option === "6") {
+                    newPrices.custom = "$6,000";
+                    localStorage.custom = '6';
+                } else if (option === "7") {
+                    newPrices.custom = "$9,000 - $12,000";
+                    localStorage.custom = '7';
+                }
+                setPriceState(newPrices);
+                setOptionState(option);
+            }, [select]);
             return (
-                <select>
-                    <option>
+                <select onChange={onChangeInput} data-key="custom" defaultValue={optionState}>
+                    <option value={'3'}>
                         Up to 3 Sections
                     </option>
-                    <option>
+                    <option value={'6'}>
                         4 - 6 Sections
                     </option>
-                    <option>
-                        More than 7 Sections
+                    <option value={'7'}>
+                        7 Sections or More
                     </option>
                 </select>
             );
@@ -20,8 +79,7 @@ export default function Prices({ dictionary }) {
         colorOption : () => {
             return (
                 <>
-                    <input type="checkbox" />
-                    <p>Dark & Light Modes</p>
+                    <input type="checkbox" onChange={updatePrice} data-key="custom" />
                 </>
             );
         },
@@ -29,15 +87,14 @@ export default function Prices({ dictionary }) {
         respOption : () => {
             return (
                 <>
-                    <input type="checkbox" />
-                    <p>Responsive Design</p>
+                    <input type="checkbox" onChange={updatePrice} data-key="custom" />
                 </>
             );
         },
 
         interOption : () => {
             return (
-                <select>
+                <select onChange={updatePrice} data-key="custom">
                     <option>
                         No
                     </option>
@@ -54,8 +111,7 @@ export default function Prices({ dictionary }) {
         seoOption : () => {
             return (
                 <>
-                    <input type="checkbox" />
-                    <p>Search Engine Optimization</p>
+                    <input type="checkbox" onChange={updatePrice} data-key="custom" />
                 </>
             );
         },
@@ -63,8 +119,7 @@ export default function Prices({ dictionary }) {
         accesibOption : () => {
             return (
                 <>
-                    <input type="checkbox" />
-                    <p>Make Your Site Accessible</p>
+                    <input type="checkbox" onChange={updatePrice} data-key="custom" />
                 </>
             );
         },
@@ -72,15 +127,14 @@ export default function Prices({ dictionary }) {
         manageOption : () => {
             return (
                 <>
-                    <input type="checkbox" />
-                    <p>Take Control of Your Data</p>
+                    <input type="checkbox" onChange={updatePrice} data-key="custom" />
                 </>
             );
         },
 
         dbOption : () => {
             return (
-                <select>
+                <select onChange={updatePrice} data-key="custom">
                     <option>
                         None
                     </option>
@@ -96,7 +150,7 @@ export default function Prices({ dictionary }) {
 
         ecomOption : () => {
             return (
-                <select>
+                <select onChange={updatePrice} data-key="custom">
                     <option>
                         None
                     </option>
@@ -113,8 +167,7 @@ export default function Prices({ dictionary }) {
         adsOption : () => {
             return (
                 <>
-                    <input type="checkbox" />
-                    <p>Use Google Ads</p>
+                    <input type="checkbox" onChange={updatePrice} data-key="custom" />
                 </>
             );
         },
@@ -122,8 +175,7 @@ export default function Prices({ dictionary }) {
         analOption : () => {
             return (
                 <>
-                    <input type="checkbox" />
-                    <p>Use Google Analytics</p>
+                    <input type="checkbox" onChange={updatePrice} data-key="custom" />
                 </>
             );
         },
@@ -131,7 +183,7 @@ export default function Prices({ dictionary }) {
         apiOption : () => {
             return (
                 <>
-                <select>
+                <select onChange={updatePrice} data-key="custom">
                     <option>
                         None
                     </option>
@@ -149,8 +201,7 @@ export default function Prices({ dictionary }) {
         hostOption : () => {
             return (
                 <>
-                    <input type="checkbox" />
-                    <p>Hosting</p>
+                    <input type="checkbox" onChange={updatePrice} data-key="custom" />
                 </>
             );
         },
@@ -158,8 +209,7 @@ export default function Prices({ dictionary }) {
         domOption : () => {
             return (
                 <>
-                    <input type="checkbox" />
-                    <p>Domain</p>
+                    <input type="checkbox" onChange={updatePrice} data-key="custom" />
                 </>
             );
         },
@@ -167,8 +217,7 @@ export default function Prices({ dictionary }) {
         writeOption : () => {
             return (
                 <>
-                    <input type="checkbox" />
-                    <p>Copywrite</p>
+                    <input type="checkbox" onChange={updatePrice} data-key="custom" />
                 </>
             );
         },
@@ -176,8 +225,7 @@ export default function Prices({ dictionary }) {
         imgOption : () => {
             return (
                 <>
-                    <input type="checkbox" />
-                    <p>Image Licencing</p>
+                    <input type="checkbox" onChange={updatePrice} data-key="custom" />
                 </>
             );
         },
@@ -185,28 +233,46 @@ export default function Prices({ dictionary }) {
         maintOption : () => {
             return (
                 <>
-                    <input type="checkbox" />
-                    <p>Maintenance</p>
+                    <input type="checkbox" onChange={updatePrice} data-key="custom" />
                 </>
             );
         },
     };
 
     const options = [<components.customOption />, <components.colorOption />, <components.respOption />, <components.interOption />, <components.seoOption />, <components.accesibOption />, <components.manageOption />, <components.dbOption />, <components.ecomOption />, <components.adsOption />, <components.analOption />, <components.apiOption />, <components.hostOption />, <components.domOption />, <components.writeOption />, <components.imgOption />, <components.maintOption />];
-    const feats = Object.keys(dictionary.Features);
-    const servs = Object.keys(dictionary.Services);
-    const rows = [...feats, ...servs];
+
+    const nameList = [
+        "Custom Design",
+        "Dark & Light Mode",
+        "Responsive Design",
+        "Internationalization",
+        "Serch Engine Optimization",
+        "Accessibility",
+        "Self-Management",
+        "Database Management",
+        "E-Commerce Creation & Integration",
+        "Google Ads",
+        "Google Analytics",
+        "API Integration",
+        "Hosting Services",
+        "Domain Reservation",
+        "CopyWrite",
+        "Image Licencing",
+        "Site Maintanence"
+
+    ];
+    
     const bodyRows = rows.map((key, idx) => {
         return (
             <tr key={key} className="bg-white dark:bg-gray-800 dark:border-gray-700">
                 <td className="border text-center p-4">
-                    {key}
+                    {nameList[idx]}
                 </td>
                 <td className="border text-center p-4">
                     {options[idx]}
                 </td>
                 <td className="border text-center p-4">
-                    price
+                    {priceState[key]}
                 </td>
             </tr>
         );
