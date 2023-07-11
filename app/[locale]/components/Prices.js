@@ -7,18 +7,19 @@ export default function Prices({ dictionary }) {
     const rows = [...feats, ...servs];
     const keyList = {};
 
-    rows.forEach((key) => {
-        keyList[key] = '--';
-    });
+    rows.forEach((key) => keyList[key] = '--');
 
     const [priceState, setPriceState] = useState(keyList);
     const [optionState, setOptionState] = useState(keyList);
+    const [total, setTotal] = useState(0);
 
     useEffect(() => {
         const defaultPrices = {...keyList};
         const defaultOptions = {...keyList};
-        defaultPrices.custom = "$3,000";
-        defaultOptions.custom = '3';
+        defaultPrices.custom = 3000;
+        defaultPrices.host = 2000;
+        defaultPrices.dom = 800;
+        defaultOptions.custom = '0';
         defaultOptions.color = false;
         defaultOptions.resp = false;
         defaultOptions.inter = '0';
@@ -30,43 +31,72 @@ export default function Prices({ dictionary }) {
         defaultOptions.ads = false;
         defaultOptions.anal = false;
         defaultOptions.api = '0';
-        defaultOptions.host = false;
-        defaultOptions.dom = false;
+        defaultOptions.host = true;
+        defaultOptions.dom = true;
         defaultOptions.write = false;
         defaultOptions.img = false;
         defaultOptions.maint = false;
         setPriceState(defaultPrices);
         setOptionState(defaultOptions);
-    },{});
+        setTotal(5800);
+    },[]);
+
+    const defaultPrices = {
+        custom: [3000, 6000, [9000, 12000]],
+        color: 900,
+        resp: 1200,
+        inter: [0, 1000, [2000, 4000]],
+        seo: 1900,
+        accesib: 900,
+        manage: 1900,
+        db: [0, 1900, [1900, 3900]],
+        ecom: [0, 1900, [1900, 3900]],
+        ads: 1400,
+        anal: 1400,
+        api: [0, 1900, [1900, 3900]],
+        host: 2000,
+        dom: 800,
+        write: 1400,
+        img: 2400,
+        maint: 1900
+    }
+
+    function priceTabulator (e) {
+        const option = e.target.checked == undefined ? e.target.value : e.target.checked;
+        const key = e.target.dataset.key;
+        const newPrices = {...priceState};
+        const newOptions = {...optionState};
+        if (option === "0") {
+            newPrices[key] = defaultPrices[key][0];
+            newOptions[key] = '0';
+        } else if (option === "1") {
+            newPrices[key] = defaultPrices[key][1];
+            newOptions[key] = '1';
+        } else if (option === "2") {
+            newPrices[key] = defaultPrices[key][2];
+            newOptions[key] = '2';
+        } else if (option === true) {
+            newPrices[key] = defaultPrices[key];
+            newOptions[key] = true;
+        } else if (option === false) {
+            newPrices[key] = "--";
+            newOptions[key] = false;
+        } 
+        setPriceState(newPrices);
+        setOptionState(newOptions);
+    }
 
     const components = {
         customOption : () => {
-            const onChangeInput = useCallback((e) => {
-                const option = e.target.value;
-                const newPrices = {...priceState};
-                const newOptions = {...optionState};
-                if (option === "3") {
-                    newPrices.custom = "$3,000";
-                    newOptions.custom = '3';
-                } else if (option === "6") {
-                    newPrices.custom = "$6,000";
-                    newOptions.custom = '6';
-                } else if (option === "7") {
-                    newPrices.custom = "$9,000 - $12,000";
-                    newOptions.custom = '7';
-                }
-                setPriceState(newPrices);
-                setOptionState(newOptions);
-            }, [optionState.custom]);
             return (
-                <select onChange={onChangeInput} defaultValue={optionState.custom}>
-                    <option value={'3'}>
+                <select onChange={priceTabulator} data-key={'custom'} defaultValue={optionState.custom}>
+                    <option value={'0'}>
                         Up to 3 Sections
                     </option>
-                    <option value={'6'}>
+                    <option value={'1'}>
                         4 - 6 Sections
                     </option>
-                    <option value={'7'}>
+                    <option value={'2'}>
                         7 Sections or More
                     </option>
                 </select>
@@ -74,69 +104,24 @@ export default function Prices({ dictionary }) {
         },
         
         colorOption : () => {
-            const onChangeInput = useCallback((e) => {
-                const option = e.target.checked;
-                const newPrices = {...priceState};
-                const newOptions = {...optionState};
-                if (option === true) {
-                    newPrices.color = "$900";
-                    newOptions.color = true;
-                } else if (option === false) {
-                    newPrices.color = "--";
-                    newOptions.color = false;
-                } 
-                setPriceState(newPrices);
-                setOptionState(newOptions);
-            }, [optionState.color]);
             return (
                 <>
-                    <input type="checkbox" onChange={onChangeInput} checked={optionState.color} />
+                    <input type="checkbox" data-key={'color'} onChange={priceTabulator} checked={optionState.color} />
                 </>
             );
         },
 
         respOption : () => {
-            const onChangeInput = useCallback((e) => {
-                const option = e.target.checked;
-                const newPrices = {...priceState};
-                const newOptions = {...optionState};
-                if (option === true) {
-                    newPrices.resp = "$1,200";
-                    newOptions.resp = true;
-                } else if (option === false) {
-                    newPrices.resp = "--";
-                    newOptions.resp = false;
-                } 
-                setPriceState(newPrices);
-                setOptionState(newOptions);
-            }, [optionState.resp]);
             return (
                 <>
-                    <input type="checkbox" onChange={onChangeInput} checked={optionState.resp} />
+                    <input type="checkbox"  onChange={priceTabulator} data-key={'resp'} checked={optionState.resp} />
                 </>
             );
         },
 
         interOption : () => {
-            const onChangeInput = useCallback((e) => {
-                const option = e.target.value;
-                const newPrices = {...priceState};
-                const newOptions = {...optionState};
-                if (option === "0") {
-                    newPrices.inter = "--";
-                    newOptions.inter = '0';
-                } else if (option === "2") {
-                    newPrices.inter = "$1,000";
-                    newOptions.inter = '2';
-                } else if (option === "3") {
-                    newPrices.inter = "$2,000 - $4,000";
-                    newOptions.inter = '3';
-                }
-                setPriceState(newPrices);
-                setOptionState(newOptions);
-            }, [optionState.inter]);
             return (
-                <select onChange={onChangeInput} defaultValue={optionState.inter}>
+                <select  onChange={priceTabulator} data-key={'inter'} defaultValue={optionState.inter}>
                     <option value={"0"}>
                         No
                     </option>
@@ -151,91 +136,32 @@ export default function Prices({ dictionary }) {
         },
 
         seoOption : () => {
-            const onChangeInput = useCallback((e) => {
-                const option = e.target.checked;
-                const newPrices = {...priceState};
-                const newOptions = {...optionState};
-                if (option === true) {
-                    newPrices.seo = "$1,900";
-                    newOptions.seo = true;
-                } else if (option === false) {
-                    newPrices.seo = "--";
-                    newOptions.seo = false;
-                } 
-                setPriceState(newPrices);
-                setOptionState(newOptions);
-            }, [optionState.seo]);
             return (
                 <>
-                    <input type="checkbox" onChange={onChangeInput} checked={optionState.seo} />
+                    <input type="checkbox"  onChange={priceTabulator} data-key={'seo'} checked={optionState.seo} />
                 </>
             );
         },
 
         accesibOption : () => {
-            const onChangeInput = useCallback((e) => {
-                const option = e.target.checked;
-                const newPrices = {...priceState};
-                const newOptions = {...optionState};
-                if (option === true) {
-                    newPrices.accesib = "$900";
-                    newOptions.accesib = true;
-                } else if (option === false) {
-                    newPrices.accesib = "--";
-                    newOptions.accesib = false;
-                } 
-                setPriceState(newPrices);
-                setOptionState(newOptions);
-            }, [optionState.accesib]);
             return (
                 <>
-                    <input type="checkbox" onChange={onChangeInput} checked={optionState.accesib} />
+                    <input type="checkbox"  onChange={priceTabulator} data-key={'accesib'} checked={optionState.accesib} />
                 </>
             );
         },
 
         manageOption : () => {
-            const onChangeInput = useCallback((e) => {
-                const option = e.target.checked;
-                const newPrices = {...priceState};
-                const newOptions = {...optionState};
-                if (option === true) {
-                    newPrices.manage = "1,900";
-                    newOptions.manage = true;
-                } else if (option === false) {
-                    newPrices.manage = "--";
-                    newOptions.manage = false;
-                } 
-                setPriceState(newPrices);
-                setOptionState(newOptions);
-            }, [optionState.manage]);
             return (
                 <>
-                    <input type="checkbox" onChange={onChangeInput} checked={optionState.manage} />
+                    <input type="checkbox"  onChange={priceTabulator} data-key={'manage'} checked={optionState.manage} />
                 </>
             );
         },
 
         dbOption : () => {
-            const onChangeInput = useCallback((e) => {
-                const option = e.target.value;
-                const newPrices = {...priceState};
-                const newOptions = {...optionState};
-                if (option === "0") {
-                    newPrices.db = "--";
-                    newOptions.db = '0';
-                } else if (option === "1") {
-                    newPrices.db = "$1,900";
-                    newOptions.db = '1';
-                } else if (option === "2") {
-                    newPrices.db = "$1,900 - $3,900";
-                    newOptions.db = '2';
-                }
-                setPriceState(newPrices);
-                setOptionState(newOptions);
-            }, [optionState.db]);
             return (
-                <select onChange={onChangeInput} defaultValue={optionState.db}>
+                <select  onChange={priceTabulator} data-key={'db'} defaultValue={optionState.db}>
                     <option value={"0"}>
                         None
                     </option>
@@ -250,25 +176,8 @@ export default function Prices({ dictionary }) {
         },
 
         ecomOption : () => {
-            const onChangeInput = useCallback((e) => {
-                const option = e.target.value;
-                const newPrices = {...priceState};
-                const newOptions = {...optionState};
-                if (option === "0") {
-                    newPrices.ecom = "--";
-                    newOptions.ecom = '0';
-                } else if (option === "1") {
-                    newPrices.ecom = "$1,900";
-                    newOptions.ecom = '1';
-                } else if (option === "2") {
-                    newPrices.ecom = "$1,900 - $3,900";
-                    newOptions.ecom = '2';
-                }
-                setPriceState(newPrices);
-                setOptionState(newOptions);
-            }, [optionState.ecom]);
             return (
-                <select onChange={onChangeInput} defaultValue={optionState.ecom}>
+                <select  onChange={priceTabulator} data-key={'ecom'} defaultValue={optionState.ecom}>
                     <option value={"0"}>
                         None
                     </option>
@@ -283,70 +192,25 @@ export default function Prices({ dictionary }) {
         },
 
         adsOption : () => {
-            const onChangeInput = useCallback((e) => {
-                const option = e.target.checked;
-                const newPrices = {...priceState};
-                const newOptions = {...optionState};
-                if (option === true) {
-                    newPrices.ads = "1,400";
-                    newOptions.ads = true;
-                } else if (option === false) {
-                    newPrices.ads = "--";
-                    newOptions.ads = false;
-                } 
-                setPriceState(newPrices);
-                setOptionState(newOptions);
-            }, [optionState.ads]);
             return (
                 <>
-                    <input type="checkbox" onChange={onChangeInput} checked={optionState.ads} />
+                    <input type="checkbox"  onChange={priceTabulator} data-key={'ads'} checked={optionState.ads} />
                 </>
             );
         },
 
         analOption : () => {
-            const onChangeInput = useCallback((e) => {
-                const option = e.target.checked;
-                const newPrices = {...priceState};
-                const newOptions = {...optionState};
-                if (option === true) {
-                    newPrices.anal = "1,400";
-                    newOptions.anal = true;
-                } else if (option === false) {
-                    newPrices.anal = "--";
-                    newOptions.anal = false;
-                } 
-                setPriceState(newPrices);
-                setOptionState(newOptions);
-            }, [optionState.anal]);
             return (
                 <>
-                    <input type="checkbox" onChange={onChangeInput} checked={optionState.anal} />
+                    <input type="checkbox"  onChange={priceTabulator} data-key={'anal'} checked={optionState.anal} />
                 </>
             );
         },
 
         apiOption : () => {
-            const onChangeInput = useCallback((e) => {
-                const option = e.target.value;
-                const newPrices = {...priceState};
-                const newOptions = {...optionState};
-                if (option === "0") {
-                    newPrices.api = "--";
-                    newOptions.api = '0';
-                } else if (option === "1") {
-                    newPrices.api = "$1,900";
-                    newOptions.api = '1';
-                } else if (option === "2") {
-                    newPrices.api = "$1,900 - $3,900";
-                    newOptions.api = '2';
-                }
-                setPriceState(newPrices);
-                setOptionState(newOptions);
-            }, [optionState.api]);
             return (
                 <>
-                <select onChange={onChangeInput} defaultValue={optionState.api}>
+                <select  onChange={priceTabulator} data-key={'api'} defaultValue={optionState.api}>
                     <option value={"0"}>
                         None
                     </option>
@@ -362,111 +226,41 @@ export default function Prices({ dictionary }) {
         },
 
         hostOption : () => {
-            const onChangeInput = useCallback((e) => {
-                const option = e.target.checked;
-                const newPrices = {...priceState};
-                const newOptions = {...optionState};
-                if (option === true) {
-                    newPrices.host = "$2,000 / Year";
-                    newOptions.host = true;
-                } else if (option === false) {
-                    newPrices.host = "--";
-                    newOptions.host = false;
-                } 
-                setPriceState(newPrices);
-                setOptionState(newOptions);
-            }, [optionState.host]);
             return (
                 <>
-                    <input type="checkbox" onChange={onChangeInput} checked={optionState.host} />
+                    <input type="checkbox"  onChange={priceTabulator} data-key={'host'} checked={optionState.host} />
                 </>
             );
         },
 
         domOption : () => {
-            const onChangeInput = useCallback((e) => {
-                const option = e.target.checked;
-                const newPrices = {...priceState};
-                const newOptions = {...optionState};
-                if (option === true) {
-                    newPrices.dom = "$800 / Year";
-                    newOptions.dom = true;
-                } else if (option === false) {
-                    newPrices.dom = "--";
-                    newOptions.dom = false;
-                } 
-                setPriceState(newPrices);
-                setOptionState(newOptions);
-            }, [optionState.dom]);
             return (
                 <>
-                    <input type="checkbox" onChange={onChangeInput} checked={optionState.dom} />
+                    <input type="checkbox"  onChange={priceTabulator} data-key={'dom'} checked={optionState.dom} />
                 </>
             );
         },
 
         writeOption : () => {
-            const onChangeInput = useCallback((e) => {
-                const option = e.target.checked;
-                const newPrices = {...priceState};
-                const newOptions = {...optionState};
-                if (option === true) {
-                    newPrices.write = "1,400";
-                    newOptions.write = true;
-                } else if (option === false) {
-                    newPrices.write = "--";
-                    newOptions.write = false;
-                } 
-                setPriceState(newPrices);
-                setOptionState(newOptions);
-            }, [optionState.write]);
             return (
                 <>
-                    <input type="checkbox" onChange={onChangeInput} checked={optionState.write} />
+                    <input type="checkbox"  onChange={priceTabulator} data-key={'write'} checked={optionState.write} />
                 </>
             );
         },
 
         imgOption : () => {
-            const onChangeInput = useCallback((e) => {
-                const option = e.target.checked;
-                const newPrices = {...priceState};
-                const newOptions = {...optionState};
-                if (option === true) {
-                    newPrices.img = "2,400";
-                    newOptions.img = true;
-                } else if (option === false) {
-                    newPrices.img = "--";
-                    newOptions.img = false;
-                } 
-                setPriceState(newPrices);
-                setOptionState(newOptions);
-            }, [optionState.img]);
             return (
                 <>
-                    <input type="checkbox" onChange={onChangeInput} checked={optionState.img} />
+                    <input type="checkbox"  onChange={priceTabulator} data-key={'img'} checked={optionState.img} />
                 </>
             );
         },
 
         maintOption : () => {
-            const onChangeInput = useCallback((e) => {
-                const option = e.target.checked;
-                const newPrices = {...priceState};
-                const newOptions = {...optionState};
-                if (option === true) {
-                    newPrices.maint = "1,900 / Year";
-                    newOptions.maint = true;
-                } else if (option === false) {
-                    newPrices.maint = "--";
-                    newOptions.maint = false;
-                } 
-                setPriceState(newPrices);
-                setOptionState(newOptions);
-            }, [optionState.maint]);
             return (
                 <>
-                    <input type="checkbox" onChange={onChangeInput} checked={optionState.maint} />
+                    <input type="checkbox"  onChange={priceTabulator} data-key={'maint'} checked={optionState.maint} />
                 </>
             );
         },
@@ -505,7 +299,7 @@ export default function Prices({ dictionary }) {
                     {options[idx]}
                 </td>
                 <td className="border text-center p-4">
-                    {priceState[key]}
+                    {Array.isArray(priceState[key]) ? `$${priceState[key][0]} - $${priceState[key][1]}` : `$${priceState[key]}`}
                 </td>
             </tr>
         );
@@ -513,28 +307,37 @@ export default function Prices({ dictionary }) {
 
     return (
         <>
-        <h2>Prices:</h2>
-        <table className="w-3/4 table-auto">
-            <thead className="text-xl text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                <tr>
-                    <th>
-                        Feature / Service
-                    </th>
-                    <th>
-                        Option
-                    </th>
-                    <th>
-                        Aprox.
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                {bodyRows}
-            </tbody>
-            <tfoot>
-
-            </tfoot>
-        </table>
+            <h2>
+                Prices:
+            </h2>
+            <table className="w-3/4 table-auto mb-14">
+                <thead className="text-xl text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th>
+                            Feature / Service
+                        </th>
+                        <th>
+                            Option
+                        </th>
+                        <th>
+                            Aprox.
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {bodyRows}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colSpan={2}>
+                            Total:
+                        </td>
+                        <td>
+                            {`$${total}`}
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
         </>
     );
 }
