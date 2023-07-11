@@ -81,5 +81,17 @@
             "title": "Maintanence",
             "content": "Keep your website up to date and secure"
         }
+    },
+    "Prices": {
+        "title": "Prices",
+        "th": ["Feature / Service", "Option", "Aprox"],
+        "rate": "Year",
+        "options": {
+            "custom": ["Up to 3 Sections", "4 - 6 Sections", "7 Sections or More"],
+            "inter": ["None", "2 Languages", "More than 2"],
+            "db": ["None", "Create and Mantain", "Integrate"],
+            "api": ["None", "1 or 2", "3 or More"]
+        },
+        "names": ["Custom Design", "Dark & Light Mode", "Responsive Design", "Internationalization", "Serch Engine Optimization", "Accessibility", "Self-Management", "Database Management", "E-Commerce Creation & Integration", "Google Ads", "Google Analytics", "API Integration", "Hosting Services", "Domain Reservation", "CopyWrite", "Image Licencing", "Site Maintanence"]
     }
 }

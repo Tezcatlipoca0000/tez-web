@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 
 export default function Prices({ dictionary }) {
     const feats = Object.keys(dictionary.Features);
@@ -14,11 +14,11 @@ export default function Prices({ dictionary }) {
     const [total, setTotal] = useState(0);
 
     useEffect(() => {
-        const defaultPrices = {...keyList};
+        const defaultPrice = {...keyList};
         const defaultOptions = {...keyList};
-        defaultPrices.custom = 3000;
-        defaultPrices.host = 2000;
-        defaultPrices.dom = 800;
+        defaultPrice.custom = defaultPrices.custom[0];
+        defaultPrice.host = defaultPrices.host;
+        defaultPrice.dom = defaultPrices.dom;
         defaultOptions.custom = '0';
         defaultOptions.color = false;
         defaultOptions.resp = false;
@@ -36,29 +36,29 @@ export default function Prices({ dictionary }) {
         defaultOptions.write = false;
         defaultOptions.img = false;
         defaultOptions.maint = false;
-        setPriceState(defaultPrices);
+        setPriceState(defaultPrice);
         setOptionState(defaultOptions);
-        setTotal(5800);
+        setTotal(4500);
     },[]);
 
     const defaultPrices = {
-        custom: [3000, 6000, [9000, 12000]],
-        color: 900,
-        resp: 1200,
+        custom: [3000, 5000, [7000, 12000]],
+        color: 750,
+        resp: 900,
         inter: [0, 1000, [2000, 4000]],
-        seo: 1900,
+        seo: 1450,
         accesib: 900,
-        manage: 1900,
-        db: [0, 1900, [1900, 3900]],
-        ecom: [0, 1900, [1900, 3900]],
-        ads: 1400,
-        anal: 1400,
-        api: [0, 1900, [1900, 3900]],
-        host: 2000,
-        dom: 800,
-        write: 1400,
-        img: 2400,
-        maint: 1900
+        manage: 1450,
+        db: [0, 1450, [1450, 3900]],
+        ecom: [0, 1450, [1450, 3900]],
+        ads: 1450,
+        anal: 1450,
+        api: [0, 1450, [1450, 3900]],
+        host: 1000,
+        dom: 500,
+        write: 1450,
+        img: 2900,
+        maint: 1450
     }
 
     function priceTabulator (e) {
@@ -84,6 +84,22 @@ export default function Prices({ dictionary }) {
         } 
         setPriceState(newPrices);
         setOptionState(newOptions);
+        let min = 0,
+            max = 0;
+        Object.keys(newPrices).forEach((key) => {
+            if (typeof(newPrices[key]) === 'number') {
+                min += newPrices[key];
+                max += newPrices[key];
+            } else if (Array.isArray(newPrices[key])) {
+                min += newPrices[key][0];
+                max += newPrices[key][1];
+            }
+        });
+        if (min === max) {
+            setTotal(min);
+        } else {
+            setTotal([min, max]);
+        }
     }
 
     const components = {
@@ -91,13 +107,13 @@ export default function Prices({ dictionary }) {
             return (
                 <select onChange={priceTabulator} data-key={'custom'} defaultValue={optionState.custom}>
                     <option value={'0'}>
-                        Up to 3 Sections
+                        {dictionary.Prices.options.custom[0]}
                     </option>
                     <option value={'1'}>
-                        4 - 6 Sections
+                        {dictionary.Prices.options.custom[1]}
                     </option>
                     <option value={'2'}>
-                        7 Sections or More
+                        {dictionary.Prices.options.custom[2]}
                     </option>
                 </select>
             );
@@ -123,13 +139,13 @@ export default function Prices({ dictionary }) {
             return (
                 <select  onChange={priceTabulator} data-key={'inter'} defaultValue={optionState.inter}>
                     <option value={"0"}>
-                        No
+                        {dictionary.Prices.options.inter[0]}
                     </option>
                     <option value={"2"}>
-                        2 Languages
+                        {dictionary.Prices.options.inter[1]}
                     </option>
                     <option value={"3"}>
-                        More than 2
+                        {dictionary.Prices.options.inter[2]}
                     </option>
                 </select>
             );
@@ -163,13 +179,13 @@ export default function Prices({ dictionary }) {
             return (
                 <select  onChange={priceTabulator} data-key={'db'} defaultValue={optionState.db}>
                     <option value={"0"}>
-                        None
+                        {dictionary.Prices.options.db[0]}
                     </option>
                     <option value={"1"}>
-                        Create and Mantain
+                        {dictionary.Prices.options.db[1]}
                     </option>
                     <option value={"2"}>
-                        Integrate
+                        {dictionary.Prices.options.db[2]}
                     </option>
                 </select>
             );
@@ -179,13 +195,13 @@ export default function Prices({ dictionary }) {
             return (
                 <select  onChange={priceTabulator} data-key={'ecom'} defaultValue={optionState.ecom}>
                     <option value={"0"}>
-                        None
+                        {dictionary.Prices.options.db[0]}
                     </option>
                     <option value={"1"}>
-                        Create and Mantain
+                        {dictionary.Prices.options.db[1]}
                     </option>
                     <option value={"2"}>
-                        Integrate
+                        {dictionary.Prices.options.db[2]}
                     </option>
                 </select>
             );
@@ -212,13 +228,13 @@ export default function Prices({ dictionary }) {
                 <>
                 <select  onChange={priceTabulator} data-key={'api'} defaultValue={optionState.api}>
                     <option value={"0"}>
-                        None
+                        {dictionary.Prices.options.api[0]}
                     </option>
                     <option value={"1"}>
-                        1 or 2
+                        {dictionary.Prices.options.api[1]}
                     </option>
                     <option value={"2"}>
-                        3 or More
+                        {dictionary.Prices.options.api[2]}
                     </option>
                 </select>
                 </>
@@ -268,26 +284,7 @@ export default function Prices({ dictionary }) {
 
     const options = [<components.customOption />, <components.colorOption />, <components.respOption />, <components.interOption />, <components.seoOption />, <components.accesibOption />, <components.manageOption />, <components.dbOption />, <components.ecomOption />, <components.adsOption />, <components.analOption />, <components.apiOption />, <components.hostOption />, <components.domOption />, <components.writeOption />, <components.imgOption />, <components.maintOption />];
 
-    const nameList = [
-        "Custom Design",
-        "Dark & Light Mode",
-        "Responsive Design",
-        "Internationalization",
-        "Serch Engine Optimization",
-        "Accessibility",
-        "Self-Management",
-        "Database Management",
-        "E-Commerce Creation & Integration",
-        "Google Ads",
-        "Google Analytics",
-        "API Integration",
-        "Hosting Services",
-        "Domain Reservation",
-        "CopyWrite",
-        "Image Licencing",
-        "Site Maintanence"
-
-    ];
+    const nameList = [...dictionary.Prices.names];
     
     const bodyRows = rows.map((key, idx) => {
         return (
@@ -299,7 +296,7 @@ export default function Prices({ dictionary }) {
                     {options[idx]}
                 </td>
                 <td className="border text-center p-4">
-                    {Array.isArray(priceState[key]) ? `$${priceState[key][0]} - $${priceState[key][1]}` : `$${priceState[key]}`}
+                    {(key === 'maint' || key === 'host' || key === 'dom') && (priceState[key] != 0 && priceState[key] != '--') ? `$${priceState[key]} / ${dictionary.Prices.rate}` : Array.isArray(priceState[key]) ? `$${priceState[key][0]} - $${priceState[key][1]}` : `$${priceState[key]}`}
                 </td>
             </tr>
         );
@@ -308,19 +305,19 @@ export default function Prices({ dictionary }) {
     return (
         <>
             <h2>
-                Prices:
+                {dictionary.Prices.title}
             </h2>
             <table className="w-3/4 table-auto mb-14">
                 <thead className="text-xl text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th>
-                            Feature / Service
+                            {dictionary.Prices.th[0]}
                         </th>
                         <th>
-                            Option
+                            {dictionary.Prices.th[1]}
                         </th>
                         <th>
-                            Aprox.
+                            {dictionary.Prices.th[2]}
                         </th>
                     </tr>
                 </thead>
@@ -333,7 +330,7 @@ export default function Prices({ dictionary }) {
                             Total:
                         </td>
                         <td>
-                            {`$${total}`}
+                            {typeof(total) === 'number' ? `$${total}` : `$${total[0]} - $${total[1]}`}
                         </td>
                     </tr>
                 </tfoot>

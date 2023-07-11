@@ -81,5 +81,17 @@
             "title": "Mantenimiento",
             "content": "Manten tu sitio seguro y actualizado"
         }
+    },
+    "Prices": {
+        "title": "Precios",
+        "th": ["Característica / Servicio", "Opción", "Apróximado"],
+        "rate": "Año",
+        "options": {
+            "custom": ["Hasta 3 Secciones", "4 - 6 Secciones", "7 Secciones o Más"],
+            "inter": ["No", "2 Idiomas", "Más de 2"],
+            "db": ["No", "Crear y Mantener", "Integrar"],
+            "api": ["No", "1 o 2", "3 o Más"]
+        },
+        "names": ["Diseño Personalizado", "Modo Claro & Oscuro", "Responsivo", "Internacionalización", "Optimización de los Motores de Búsqueda", "Accesibilidad", "Auto-Manejable", "Administración de Base de Datos", "E-commerce", "Google Ads", "Google Analytics", "Integración de API", "Hosting", "Reservación del nombre de Dominio", "Copywrite", "Image Licencing", "Mantenimiento"]
     }
 }
