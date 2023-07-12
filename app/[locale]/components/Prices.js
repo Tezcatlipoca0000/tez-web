@@ -105,7 +105,7 @@ export default function Prices({ dictionary }) {
     const components = {
         customOption : () => {
             return (
-                <select onChange={priceTabulator} data-key={'custom'} defaultValue={optionState.custom}>
+                <select className="bg-white" onChange={priceTabulator} data-key={'custom'} defaultValue={optionState.custom}>
                     <option value={'0'}>
                         {dictionary.Prices.options.custom[0]}
                     </option>
@@ -122,7 +122,7 @@ export default function Prices({ dictionary }) {
         colorOption : () => {
             return (
                 <>
-                    <input type="checkbox" data-key={'color'} onChange={priceTabulator} checked={optionState.color} />
+                    <input className="" type="checkbox" data-key={'color'} onChange={priceTabulator} checked={optionState.color} />
                 </>
             );
         },
@@ -288,7 +288,7 @@ export default function Prices({ dictionary }) {
     
     const bodyRows = rows.map((key, idx) => {
         return (
-            <tr key={key} className="bg-white dark:bg-gray-800 dark:border-gray-700">
+            <tr key={key} className="bg-slate-300 dark:bg-gray-800 dark:border-gray-700">
                 <td className="border text-center p-4">
                     {nameList[idx]}
                 </td>
@@ -296,7 +296,12 @@ export default function Prices({ dictionary }) {
                     {options[idx]}
                 </td>
                 <td className="border text-center p-4">
-                    {(key === 'maint' || key === 'host' || key === 'dom') && (priceState[key] != 0 && priceState[key] != '--') ? `$${priceState[key]} / ${dictionary.Prices.rate}` : Array.isArray(priceState[key]) ? `$${priceState[key][0]} - $${priceState[key][1]}` : `$${priceState[key]}`}
+                    {
+                    (key === 'maint' || key === 'host' || key === 'dom') && (priceState[key] != 0 && priceState[key] != '--') ? `$${priceState[key]} / ${dictionary.Prices.rate}` 
+                    : Array.isArray(priceState[key]) ? `$${priceState[key][0]} - $${priceState[key][1]}` 
+                    : (priceState[key] == 0 || priceState[key] == '--') ? '--' 
+                    : `$${priceState[key]}`
+                    }
                 </td>
             </tr>
         );
