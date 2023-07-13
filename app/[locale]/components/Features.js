@@ -46,11 +46,21 @@ export default function Features({ dictionary }) {
             let desc = e.currentTarget.lastElementChild;
             desc.classList.toggle('descAppear');
         }
+        let small = e.currentTarget;
+        if (small.classList.contains('featBtn')) {
+            if (small.classList.contains('bounceRight')) {
+                small.classList.remove('bounceRight');
+                small.classList.add('bounceLeft')
+            } else {
+                small.classList.remove('bounceLeft');
+                small.classList.add('bounceRight');
+            }
+        }
     }
 
     const renderedFeaturesBig = Object.keys(dictionary.Features).map((key, idx) => {
         return (
-            <div className="featCard" onClick={(e) => toggleFeature(e, key)} key={key}>
+            <div className="featCard" onClick={(e) => toggleFeature(e, key)} key={`big-Features-${key}`}>
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
                     {idx === 5 ? <AccesibIcon /> : <Image src={bgImages[idx]} alt={`${key} background image`} fill style={{objectFit: "cover"}} className={features[key] ? '' : 'blur-sm'} />}
                 </div>
@@ -66,7 +76,7 @@ export default function Features({ dictionary }) {
 
     const renderedFeaturesSmall = Object.keys(dictionary.Features).map((key) => {
         return (
-            <li key={`small-${key}`}>
+            <li key={`small-Features-${key}`}>
                 <button className="featBtn" onClick={(e) => {toggleFeature(e, key);}}>
                     <div className="flex items-center">
                         {features[key] ? <ArrowDown width="2" /> : <ArrowUp width="2" />}

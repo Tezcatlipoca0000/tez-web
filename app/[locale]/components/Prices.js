@@ -13,6 +13,26 @@ export default function Prices({ dictionary }) {
     const [optionState, setOptionState] = useState(keyList);
     const [total, setTotal] = useState(0);
 
+    const defaultPrices = {
+        custom: [3000, 5000, [7000, 12000]],
+        color: 750,
+        resp: 900,
+        inter: [0, 1000, [2000, 4000]],
+        seo: 1450,
+        accesib: 900,
+        manage: 1450,
+        db: [0, 1450, [1450, 3900]],
+        ecom: [0, 1450, [1450, 3900]],
+        ads: 1450,
+        anal: 1450,
+        api: [0, 1450, [1450, 3900]],
+        host: 1000,
+        dom: 500,
+        write: 1450,
+        img: 2900,
+        maint: 1450
+    }
+
     useEffect(() => {
         const defaultPrice = {...keyList};
         const defaultOptions = {...keyList};
@@ -40,26 +60,6 @@ export default function Prices({ dictionary }) {
         setOptionState(defaultOptions);
         setTotal(4500);
     },[]);
-
-    const defaultPrices = {
-        custom: [3000, 5000, [7000, 12000]],
-        color: 750,
-        resp: 900,
-        inter: [0, 1000, [2000, 4000]],
-        seo: 1450,
-        accesib: 900,
-        manage: 1450,
-        db: [0, 1450, [1450, 3900]],
-        ecom: [0, 1450, [1450, 3900]],
-        ads: 1450,
-        anal: 1450,
-        api: [0, 1450, [1450, 3900]],
-        host: 1000,
-        dom: 500,
-        write: 1450,
-        img: 2900,
-        maint: 1450
-    }
 
     function priceTabulator (e) {
         const option = e.target.checked == undefined ? e.target.value : e.target.checked;
@@ -105,7 +105,7 @@ export default function Prices({ dictionary }) {
     const components = {
         customOption : () => {
             return (
-                <select className="bg-white" onChange={priceTabulator} data-key={'custom'} defaultValue={optionState.custom}>
+                <select className="bg-white dark:bg-slate-950 text-center" onChange={priceTabulator} data-key={'custom'} defaultValue={optionState.custom}>
                     <option value={'0'}>
                         {dictionary.Prices.options.custom[0]}
                     </option>
@@ -122,7 +122,7 @@ export default function Prices({ dictionary }) {
         colorOption : () => {
             return (
                 <>
-                    <input className="" type="checkbox" data-key={'color'} onChange={priceTabulator} checked={optionState.color} />
+                    <input type="checkbox" data-key={'color'} onChange={priceTabulator} checked={optionState.color} />
                 </>
             );
         },
@@ -137,7 +137,7 @@ export default function Prices({ dictionary }) {
 
         interOption : () => {
             return (
-                <select  onChange={priceTabulator} data-key={'inter'} defaultValue={optionState.inter}>
+                <select className='bg-white dark:bg-slate-950 text-center' onChange={priceTabulator} data-key={'inter'} defaultValue={optionState.inter}>
                     <option value={"0"}>
                         {dictionary.Prices.options.inter[0]}
                     </option>
@@ -177,7 +177,7 @@ export default function Prices({ dictionary }) {
 
         dbOption : () => {
             return (
-                <select  onChange={priceTabulator} data-key={'db'} defaultValue={optionState.db}>
+                <select className='bg-white dark:bg-slate-950 text-center' onChange={priceTabulator} data-key={'db'} defaultValue={optionState.db}>
                     <option value={"0"}>
                         {dictionary.Prices.options.db[0]}
                     </option>
@@ -193,7 +193,7 @@ export default function Prices({ dictionary }) {
 
         ecomOption : () => {
             return (
-                <select  onChange={priceTabulator} data-key={'ecom'} defaultValue={optionState.ecom}>
+                <select className='bg-white dark:bg-slate-950 text-center' onChange={priceTabulator} data-key={'ecom'} defaultValue={optionState.ecom}>
                     <option value={"0"}>
                         {dictionary.Prices.options.db[0]}
                     </option>
@@ -226,7 +226,7 @@ export default function Prices({ dictionary }) {
         apiOption : () => {
             return (
                 <>
-                <select  onChange={priceTabulator} data-key={'api'} defaultValue={optionState.api}>
+                <select className='bg-white dark:bg-slate-950 text-center' onChange={priceTabulator} data-key={'api'} defaultValue={optionState.api}>
                     <option value={"0"}>
                         {dictionary.Prices.options.api[0]}
                     </option>
@@ -331,7 +331,7 @@ export default function Prices({ dictionary }) {
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colSpan={2}>
+                        <td colSpan={2} className="text-center">
                             Total:
                         </td>
                         <td>

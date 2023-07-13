@@ -31,11 +31,21 @@ export default function Services({ dictionary }) {
             let desc = e.currentTarget.lastElementChild;
             desc.classList.toggle('descAppear');
         }
+        let small = e.currentTarget;
+        if (small.classList.contains('featBtn')) {
+            if (small.classList.contains('bounceRight')) {
+                small.classList.remove('bounceRight');
+                small.classList.add('bounceLeft')
+            } else {
+                small.classList.remove('bounceLeft');
+                small.classList.add('bounceRight');
+            }
+        }
     }
 
     const renderedServicesBig = Object.keys(dictionary.Services).map((key, idx) => {
         return (
-            <div className="featCard" onClick={(e) => toggleServices(e, key)} key={key}>
+            <div className="featCard" onClick={(e) => toggleServices(e, key)} key={`big-services-${key}`}>
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
                     <Image src={bgImages[idx]} alt={`${key} background image`} fill style={{objectFit: "cover"}} className={services[key] ? '' : 'blur-sm'} />
                 </div>
@@ -51,7 +61,7 @@ export default function Services({ dictionary }) {
 
     const renderedServicesSmall = Object.keys(dictionary.Services).map((key, idx) => {
         return (
-            <li>
+            <li key={`samll-services-${key}`}>
                 <button className="featBtn" onClick={(e) => toggleServices(e, key)}>
                     <div className="flex items-center">
                         {services[key] ? <ArrowDown width="2" /> : <ArrowUp width="2" />}

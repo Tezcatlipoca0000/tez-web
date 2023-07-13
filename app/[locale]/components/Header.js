@@ -52,11 +52,9 @@ export default function Header({ messages }) {
 
     const renderedNav = Object.keys(messages.Route).map((key, idx) => {
         return (
-            <>
-                <Link key={key} className={`navBtn ${idx === 0 ? 'home' : routes[idx - 1]}Nav`} href={`/${locale}${idx === 0 ? '' : '/' + routes[idx - 1]}`}>
-                    {messages.Route[key]}
-                </Link>
-            </>
+            <Link key={`Nav-${key}`} className={`navBtn ${idx === 0 ? 'home' : routes[idx - 1]}Nav`} href={`/${locale}${idx === 0 ? '' : '/' + routes[idx - 1]}`}>
+                {messages.Route[key]}
+            </Link>
         );
     });
 

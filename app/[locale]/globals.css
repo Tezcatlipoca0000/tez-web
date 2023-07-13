@@ -11,12 +11,21 @@
   --darkBackground-end-rgb: 30, 30, 30;
 }
 
-@keyframes bounceRight {
+@keyframes BounceRight {
   0%, 100% {
     transform: none;
  }
  50% {
     transform: translateX(15px);
+ }
+}
+
+@keyframes BounceLeft {
+  0%, 100% {
+    transform: none;
+ }
+ 50% {
+    transform: translateX(-15px);
  }
 }
 
@@ -70,7 +79,15 @@
   /* ****         Features: Small screen Layout **** */
 
   .featBtn {
-    @apply w-full inline-flex flex-col px-4 py-2 space-x-4 hover:transition-[padding] duration-500 ease-in-out hover:pl-10 hover:animate-[bounceRight_500ms_ease-in-out_1] text-2xl 
+    @apply w-full inline-flex flex-col px-4 py-2 space-x-4 text-2xl 
+  }
+
+  .bounceRight {
+    @apply transition-[padding] duration-500 ease-in-out pl-10 animate-[BounceRight_500ms_ease-in-out_1]
+  }
+
+  .bounceLeft {
+    @apply transition-[padding] duration-500 ease-in-out pl-4 animate-[BounceLeft_500ms_ease-in-out_1]
   }
 
   .featBtn:hover .featDesc {
