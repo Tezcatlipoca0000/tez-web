@@ -93,5 +93,8 @@
             "api": ["None", "1 or 2", "3 or More"]
         },
         "names": ["Custom Design", "Dark & Light Mode", "Responsive Design", "Internationalization", "Serch Engine Optimization", "Accessibility", "Self-Management", "Database Management", "E-Commerce Creation & Integration", "Google Ads", "Google Analytics", "API Integration", "Hosting Services", "Domain Reservation", "CopyWrite", "Image Licencing", "Site Maintanence"]
+    },
+    "Faqs":{
+        "q": ["What do I need to have my own website?","What is Web Hosting?","What is a Website Domain?","How long does it take to develop a website?","What is E-commerce?","What is Internationalization?","What are the risk the website is exposed to?","What is SEO?","What is responsive designe?","How is accessibility implemented in websites?"]
     }
 }
