@@ -33,6 +33,7 @@ export default function Features({ dictionary }) {
         anal: true,
         api: true
     });
+    const [position, setPosition] = useState(0);
     
     const bgImages = [customBG, colorModeBG, responsiveBG, interBG, seoBG, accesibBG, manageBG, dbBG, ecommBG, adsBG, analBG, apiBG];
 
@@ -58,10 +59,18 @@ export default function Features({ dictionary }) {
         }
     }
 
-    const carousel = Object.keys(dictionary.Features).map((key, idx) => {
+    const carouselItems = Object.keys(dictionary.Features).map((key, idx) => {
         return (
-            <div>
-
+            <div className="w-full h-full flex flex-col justify-center items-center">
+                <div className={`absolute top-0 left-0 w-full h-full ${idx === 0 ? '' : 'hidden'}`}>
+                    <Image src={bgImages[idx]} alt={`${key} background image`} fill style={{objectFit: "cover"}} className={features[key] ? '' : 'blur-sm'} />
+                </div>
+                <h3 className={`z-10 text-4xl ${key === 'custom' ? '' : 'hidden'}`}>
+                    {dictionary.Features[key].title}
+                </h3>
+                <p className="z-10 featDesc text-justify mt-5">
+                    {dictionary.Features[key].content}
+                </p>
             </div>
         );
     });
@@ -103,8 +112,26 @@ export default function Features({ dictionary }) {
     return (
         <>
             {/* Carousel */}
-            <div>
-                
+            <div className="relative flex justify-center items-center w-10/12 bg-slate-900 h-56 overflow-hidden rounded-lg md:h-96">
+                <div className="relative w-full h-full">
+                    {carouselItems}
+                </div>
+                <button type="button" className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none">
+                    <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                        <svg className="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 1 1 5l4 4"/>
+                        </svg>
+                        <span className="sr-only">Previous</span>
+                    </span>
+                </button>
+                <button type="button" className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none">
+                    <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                        <svg className="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4"/>
+                        </svg>
+                        <span className="sr-only">Next</span>
+                    </span>
+                </button>
             </div>
 
             {/* For larger screens */}
