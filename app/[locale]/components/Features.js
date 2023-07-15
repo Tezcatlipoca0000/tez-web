@@ -58,6 +58,14 @@ export default function Features({ dictionary }) {
         }
     }
 
+    const carousel = Object.keys(dictionary.Features).map((key, idx) => {
+        return (
+            <div>
+
+            </div>
+        );
+    });
+
     const renderedFeaturesBig = Object.keys(dictionary.Features).map((key, idx) => {
         return (
             <div className="featCard" onClick={(e) => toggleFeature(e, key)} key={`big-Features-${key}`}>
@@ -94,6 +102,11 @@ export default function Features({ dictionary }) {
 
     return (
         <>
+            {/* Carousel */}
+            <div>
+                
+            </div>
+
             {/* For larger screens */}
             <div className="w-11/12 my-6 hidden lg:block">
                 <h2>Features</h2>
