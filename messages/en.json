@@ -10,7 +10,7 @@
         "welcome": "Welcome",
         "intro": ""
     },
-    "Features": {
+    "Products": {
         "custom": {
             "title": "Custom Design",
             "content": "Completely custom designes tailored for you and your bussiness"
@@ -58,9 +58,7 @@
         "api": {
             "title": "API Integration",
             "content": "Get your favourite Aplication Program Interface directly in your website"
-        }
-    },
-    "Services": {
+        },
         "host": {
             "title": "Hosting",
             "content": "Manage the hosting services for your website"

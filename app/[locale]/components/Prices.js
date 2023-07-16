@@ -2,9 +2,7 @@
 import { useState, useEffect } from "react";
 
 export default function Prices({ dictionary }) {
-    const feats = Object.keys(dictionary.Features);
-    const servs = Object.keys(dictionary.Services);
-    const rows = [...feats, ...servs];
+    const rows = Object.keys(dictionary.Products);
     const keyList = {};
 
     rows.forEach((key) => keyList[key] = '--');
@@ -308,7 +306,7 @@ export default function Prices({ dictionary }) {
     });
 
     return (
-        <>
+        <div className="w-full flex flex-col justify-center items-center my-14">
             <h2>
                 {dictionary.Prices.title}
             </h2>
@@ -340,6 +338,6 @@ export default function Prices({ dictionary }) {
                     </tr>
                 </tfoot>
             </table>
-        </>
+        </div>
     );
 }

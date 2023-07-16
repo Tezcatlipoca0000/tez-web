@@ -16,17 +16,17 @@ export default async function Home({params}) {
         <main className='bg-inherit flex flex-col justify-center items-center'>
 
           {/* Title */}
-          <h1 className='text-center text-6xl my-4'>
+          <h1 className='text-center text-6xl my-14'>
             {dictionary.Home.welcome}
           </h1>
 
           {/* Subtitle */}
-          <h2 className='text-center text-2xl my-8 w-11/12'>
+          {/*<h2 className='text-center text-2xl my-14 w-11/12'>
+            subtitle
             {dictionary.Home.intro}
-          </h2>
+          </h2>*/}
 
           <Features dictionary={dictionary} />
-          <Services dictionary={dictionary} />
           <Prices dictionary={dictionary} />
           <FAQ dictionary={dictionary} />
           <Demos dictionary={dictionary} />
