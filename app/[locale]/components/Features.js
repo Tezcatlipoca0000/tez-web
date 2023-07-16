@@ -14,10 +14,11 @@ import analBG from "@/public/analBG.png";
 import apiBG from "@/public/apiBG.jpg";
 import ArrowDown from "../icons/ArrowDown";
 import ArrowUp from "../icons/ArrowUp";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function Features({ dictionary }) {
+
     const [features, setFeatures] = useState({
         list: false,
         custom: true,
@@ -34,6 +35,14 @@ export default function Features({ dictionary }) {
         api: true
     });
     const [position, setPosition] = useState(0);
+
+    useEffect(()=>{
+        const interval = setInterval(()=>{
+            let newPosition = position === Object.keys(dictionary.Features).length - 1 ? 0 : position + 1;
+            setPosition(newPosition); 
+         }, 3100);
+        return () => clearInterval(interval);
+    }, [position]);
     
     const bgImages = [customBG, colorModeBG, responsiveBG, interBG, seoBG, accesibBG, manageBG, dbBG, ecommBG, adsBG, analBG, apiBG];
 
@@ -61,7 +70,6 @@ export default function Features({ dictionary }) {
 
     function prevCarousel() {
         let newPosition = position === 0 ? Object.keys(dictionary.Features).length - 1 : position - 1;
-        console.log('oiiiii ---> positions', position, newPosition);
         setPosition(newPosition);
     }
 
@@ -73,18 +81,15 @@ export default function Features({ dictionary }) {
     const carouselItems = Object.keys(dictionary.Features).map((key, idx) => {
         return (
             <>
-                {position === idx && 
-                
-                    <div className={`absolute top-0 left-0 w-full h-full`}>
-                        <Image src={bgImages[idx]} alt={`${key} background image`} fill style={{objectFit: "cover"}} className={features[key] ? '' : 'blur-sm'} />
-                    </div>
-                }
-                <h3 className={`z-10 text-4xl`}>
-                        {dictionary.Features[key].title}
-                    </h3>
-                    <p className="z-10 featDesc text-justify mt-5">
-                        {dictionary.Features[key].content}
-                    </p>
+                <div className={`absolute top-0 left-0 w-full h-full`} key={`carousel-img-${key}`}>
+                    { position === idx && <Image src={bgImages[idx]} alt={`${key} background image`} fill style={{objectFit: "cover"}} className={features[key] ? '' : 'blur-sm'} /> }
+                </div>
+                <h3 className={`z-10 text-4xl absolute top-[25%]`} key={`carousel-title-${key}`}>
+                    {position === idx && dictionary.Features[key].title}
+                </h3>
+                <p className="w-1/2 z-10 text-justify absolute top-[50%]" key={`carousel-desc-${key}`}>
+                    {position === idx && dictionary.Features[key].content}
+                </p>
             </>
         );
     });
@@ -126,7 +131,7 @@ export default function Features({ dictionary }) {
     return (
         <>
             {/* Carousel */}
-            <div className="relative flex justify-center items-center w-10/12 bg-slate-900 h-56 overflow-hidden rounded-lg md:h-96">
+            <div className="relative flex justify-center items-center w-9/12 bg-slate-900 h-56 overflow-hidden rounded-lg md:h-96">
                 <div className="relative w-full h-full flex flex-col justify-center items-center">
                     {carouselItems}
                 </div>
