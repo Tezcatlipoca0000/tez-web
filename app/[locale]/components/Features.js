@@ -17,8 +17,6 @@ import domBG from "@/public/domBG.jpg";
 import writeBG from "@/public/writeBG.jpg";
 import imgBG from "@/public/imgBG.jpg";
 import maintBG from "@/public/maintBG.jpg";
-import ArrowDown from "../icons/ArrowDown";
-import ArrowUp from "../icons/ArrowUp";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
@@ -75,9 +73,13 @@ export default function Features({ dictionary }) {
             }
         }
         let newPosition = currentPosition === `${Object.keys(dictionary.Products).length - 1}` ? '0' : `${Number(currentPosition) + 1}`;
+        let currentEl = document.querySelector(`[data-position="${currentPosition}"]`),
+            newEl = document.querySelector(`[data-position="${newPosition}"]`);
+        currentEl.classList.add('slideLeft');
         newPositions[currentPosition] = false;
         newPositions[newPosition] = true;
         setPosition(newPositions);
+        newEl.classList.add('slideIn');
     }
 
     function gotoCarousel(e) {
@@ -89,7 +91,7 @@ export default function Features({ dictionary }) {
                 break;
             }
         }
-        let newPosition = e.currentTarget.dataset.position;
+        let newPosition = e.currentTarget.dataset.goto;
         newPositions[currentPosition] = false;
         newPositions[newPosition] = true;
         setPosition(newPositions);
@@ -105,7 +107,7 @@ export default function Features({ dictionary }) {
     const carouselItems = Object.keys(dictionary.Products).map((key, idx) => {
         return (
             <>
-                <div className={`absolute top-0 left-0 w-full h-full`} key={`carousel-img-${key}`}>
+                <div className={`absolute top-0 left-0 w-full h-full translate-x-full`} key={`carousel-img-${key}`} data-position={`${idx}`}>
                     { position[idx] && <Image src={bgImages[idx]} alt={`${key} background image`} fill style={{objectFit: "cover"}} /> }
                 </div>
                 <h3 className={`z-10 text-4xl absolute top-[25%]`} key={`carousel-title-${key}`}>
@@ -120,12 +122,13 @@ export default function Features({ dictionary }) {
 
     const carouselIndicators = Object.keys(dictionary.Products).map((key, idx) => {
         return (
-            <button key={`carousel-indicator-${key}`} type="button" className={`w-3 h-3 rounded-full ${position[idx] ? 'bg-white' : 'bg-white/75'} hover:bg-white`} aria-current={position[idx] ? 'true' : 'false'} aria-label={`Slide ${idx + 1}`} data-position={`${idx}`} onClick={gotoCarousel}></button>
+            <button key={`carousel-indicator-${key}`} type="button" className={`w-3 h-3 rounded-full ${position[idx] ? 'bg-white' : 'bg-white/75'} hover:bg-white`} aria-current={position[idx] ? 'true' : 'false'} aria-label={`Slide ${idx + 1}`} data-goto={`${idx}`} onClick={gotoCarousel}></button>
         );
     });
 
     return (
-        <div className="relative flex justify-center items-center w-9/12 bg-slate-900 h-56 overflow-hidden rounded-lg md:h-96 my-14">
+        <div className="w-10/12 h-[32rem] shadow-[inset_2px_5px_20px_#555] bg-white dark:bg-black flex justify-center items-center my-14">
+            <div className="relative flex justify-center items-center w-[96%] shadow-[inset_0px_-10px_25px_#700,_0px_5px_5px_#333] bg-slate-900 h-[94%] overflow-hidden rounded-lg">
 
             {/* Carousel */}
             <div className="relative w-full h-full flex flex-col justify-center items-center">
@@ -155,6 +158,7 @@ export default function Features({ dictionary }) {
                 {carouselIndicators}
             </div>
 
+            </div>
         </div>  
     );
 }

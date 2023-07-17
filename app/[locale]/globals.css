@@ -29,6 +29,24 @@
  }
 }
 
+@keyframes SlideLeft {
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes SlideRight {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes SlideIn {
+  100% {
+    transform: translateX(0);
+  }
+}
+
 @layer components {
   .lightBody {
     color: rgb(var(--foreground-rgb));
@@ -67,6 +85,18 @@
   }
 
                                                     /* **** Features **** */
+
+.slideLeft {
+  @apply animate-[SlideLeft_2_ease-in-out_1]
+}
+
+.slideRight {
+  @apply animate-[SlideRight_2_ease-in-out_1]
+}
+
+.slideIn {
+  @apply animate-[SlideIn_2_ease-in-out_1]
+}
 
 .featDesc {
   @apply w-auto h-auto max-h-0 max-w-0 overflow-hidden opacity-0 text-xl text-justify
