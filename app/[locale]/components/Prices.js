@@ -306,7 +306,7 @@ export default function Prices({ dictionary }) {
     });
 
     return (
-        <div className="w-full flex flex-col justify-center items-center my-14">
+        <>
             <h2>
                 {dictionary.Prices.title}
             </h2>
@@ -338,6 +338,6 @@ export default function Prices({ dictionary }) {
                     </tr>
                 </tfoot>
             </table>
-        </div>
+        </>
     );
 }
