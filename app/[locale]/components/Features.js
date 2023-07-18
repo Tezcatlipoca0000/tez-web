@@ -76,10 +76,17 @@ export default function Features({ dictionary }) {
         let currentEl = document.querySelector(`[data-position="${currentPosition}"]`),
             newEl = document.querySelector(`[data-position="${newPosition}"]`);
         currentEl.classList.add('slideLeft');
-        newPositions[currentPosition] = false;
-        newPositions[newPosition] = true;
-        setPosition(newPositions);
-        newEl.classList.add('slideIn');
+        setTimeout(()=>{
+            newPositions[currentPosition] = false;
+            newPositions[newPosition] = true;
+            setPosition(newPositions);
+            newEl.classList.add('slideIn');
+            currentEl.classList.remove('slideLeft');
+            setTimeout(()=>{
+                newEl.classList.remove('slideIn');
+            },300);
+        },300);
+        
     }
 
     function gotoCarousel(e) {
@@ -107,7 +114,7 @@ export default function Features({ dictionary }) {
     const carouselItems = Object.keys(dictionary.Products).map((key, idx) => {
         return (
             <>
-                <div className={`absolute top-0 left-0 w-full h-full translate-x-full`} key={`carousel-img-${key}`} data-position={`${idx}`}>
+                <div className={`absolute top-0 left-0 w-full h-full`} key={`carousel-img-${key}`} data-position={`${idx}`}>
                     { position[idx] && <Image src={bgImages[idx]} alt={`${key} background image`} fill style={{objectFit: "cover"}} /> }
                 </div>
                 <h3 className={`z-10 text-4xl absolute top-[25%]`} key={`carousel-title-${key}`}>

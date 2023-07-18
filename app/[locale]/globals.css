@@ -30,6 +30,9 @@
 }
 
 @keyframes SlideLeft {
+  0% {
+    transform: none;
+  }
   100% {
     transform: translateX(-100%);
   }
@@ -42,6 +45,9 @@
 }
 
 @keyframes SlideIn {
+  0% {
+    transform: translateX(100%);
+  }
   100% {
     transform: translateX(0);
   }
@@ -87,15 +93,15 @@
                                                     /* **** Features **** */
 
 .slideLeft {
-  @apply animate-[SlideLeft_2_ease-in-out_1]
+  @apply transition-transform duration-300 -translate-x-full /*animate-[SlideLeft_300ms_ease-in-out_1]*/
 }
 
 .slideRight {
-  @apply animate-[SlideRight_2_ease-in-out_1]
+  @apply animate-[SlideRight_300ms_ease-in-out_1]
 }
 
 .slideIn {
-  @apply animate-[SlideIn_2_ease-in-out_1]
+  @apply animate-[SlideIn_300ms_ease-in-out_1]
 }
 
 .featDesc {
