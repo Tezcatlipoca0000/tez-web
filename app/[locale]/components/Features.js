@@ -21,7 +21,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 // ***************** TODO
-// *** Animate slides for carousel --> slideLeft {1: animate translatey-25%, ...} slideRight {...}
+// *** Animate slides for carousel
 // *** maybe add bounce animation to faqs
 
 export default function Features({ dictionary }) {
@@ -115,7 +115,7 @@ export default function Features({ dictionary }) {
         return (
             <>
                 <div className={`absolute top-0 left-0 w-full h-full`} key={`carousel-img-${key}`} data-position={`${idx}`}>
-                    { position[idx] && <Image src={bgImages[idx]} alt={`${key} background image`} fill style={{objectFit: "cover"}} /> }
+                    { position[idx] && <Image src={bgImages[idx]} alt={`${key} background image`} fill style={{objectFit: "cover"}} sizes="83vw" /> }
                 </div>
                 <h3 className={`z-10 text-4xl absolute top-[25%]`} key={`carousel-title-${key}`}>
                     {position[idx] && dictionary.Products[key].title}
