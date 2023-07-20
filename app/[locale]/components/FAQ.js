@@ -3,6 +3,9 @@ import { useState } from "react";
 import ArrowDown from "../icons/ArrowDown";
 import ArrowUp from "../icons/ArrowUp";
 
+// ***************** TODO
+// *** maybe add bounce animation to faqs
+
 export default function FAQ({ dictionary }) {
     const [faqs, setFaqs] = useState([
         false,

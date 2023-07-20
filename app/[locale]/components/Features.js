@@ -20,10 +20,6 @@ import maintBG from "@/public/maintBG.jpg";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-// ***************** TODO
-// *** Animate slides for carousel
-// *** maybe add bounce animation to faqs
-
 export default function Features({ dictionary }) {
 
     const bgImages = [customBG, colorModeBG, responsiveBG, interBG, seoBG, accesibBG, manageBG, dbBG, ecommBG, adsBG, analBG, apiBG, hostBG, domBG, writeBG, imgBG, maintBG];
@@ -58,9 +54,23 @@ export default function Features({ dictionary }) {
             }
         }
         let newPosition = currentPosition === '0' ? `${Object.keys(dictionary.Products).length - 1}` : `${Number(currentPosition) - 1}`;
-        newPositions[currentPosition] = false;
-        newPositions[newPosition] = true;
-        setPosition(newPositions);
+        let currentEls = document.querySelectorAll(`[data-position="${currentPosition}"]`),
+            newEls = document.querySelectorAll(`[data-position="${newPosition}"]`);
+        for (const currentEl of currentEls) {
+            currentEl.classList.add('slideOutLeft');
+            setTimeout(()=>{
+                newPositions[currentPosition] = false;
+                newPositions[newPosition] = true;
+                setPosition(newPositions);
+                currentEl.classList.remove('slideOutLeft');
+                for (const newEl of newEls) {
+                    newEl.classList.add('slideInLeft');
+                    setTimeout(()=>{
+                        newEl.classList.remove('slideInLeft');
+                    },200);
+                }
+            },200);
+        }
     }
 
     function nextCarousel() {
@@ -73,20 +83,23 @@ export default function Features({ dictionary }) {
             }
         }
         let newPosition = currentPosition === `${Object.keys(dictionary.Products).length - 1}` ? '0' : `${Number(currentPosition) + 1}`;
-        let currentEl = document.querySelector(`[data-position="${currentPosition}"]`),
-            newEl = document.querySelector(`[data-position="${newPosition}"]`);
-        currentEl.classList.add('slideLeft');
-        setTimeout(()=>{
-            newPositions[currentPosition] = false;
-            newPositions[newPosition] = true;
-            setPosition(newPositions);
-            newEl.classList.add('slideIn');
-            currentEl.classList.remove('slideLeft');
+        let currentEls = document.querySelectorAll(`[data-position="${currentPosition}"]`),
+            newEls = document.querySelectorAll(`[data-position="${newPosition}"]`);
+        for (const currentEl of currentEls) {
+            currentEl.classList.add('slideOutLeft');
             setTimeout(()=>{
-                newEl.classList.remove('slideIn');
-            },300);
-        },300);
-        
+                newPositions[currentPosition] = false;
+                newPositions[newPosition] = true;
+                setPosition(newPositions);
+                currentEl.classList.remove('slideOutLeft');
+                for (const newEl of newEls) {
+                    newEl.classList.add('slideInLeft');
+                    setTimeout(()=>{
+                        newEl.classList.remove('slideInLeft');
+                    },200);
+                }
+            },200);
+        }
     }
 
     function gotoCarousel(e) {
@@ -99,9 +112,23 @@ export default function Features({ dictionary }) {
             }
         }
         let newPosition = e.currentTarget.dataset.goto;
-        newPositions[currentPosition] = false;
-        newPositions[newPosition] = true;
-        setPosition(newPositions);
+        let currentEls = document.querySelectorAll(`[data-position="${currentPosition}"]`),
+            newEls = document.querySelectorAll(`[data-position="${newPosition}"]`);
+        for (const currentEl of currentEls) {
+            currentEl.classList.add('slideOutLeft');
+            setTimeout(()=>{
+                newPositions[currentPosition] = false;
+                newPositions[newPosition] = true;
+                setPosition(newPositions);
+                currentEl.classList.remove('slideOutLeft');
+                for (const newEl of newEls) {
+                    newEl.classList.add('slideInLeft');
+                    setTimeout(()=>{
+                        newEl.classList.remove('slideInLeft');
+                    },200);
+                }
+            },200);
+        }
     }
 
     useEffect(()=>{
@@ -113,17 +140,17 @@ export default function Features({ dictionary }) {
 
     const carouselItems = Object.keys(dictionary.Products).map((key, idx) => {
         return (
-            <>
-                <div className={`absolute top-0 left-0 w-full h-full`} key={`carousel-img-${key}`} data-position={`${idx}`}>
+            <div className="w-full h-full flex flex-col justify-center items-center" key={`carousel-${key}`}>
+                <div className={`absolute top-0 left-0 w-full h-full`} data-position={`${idx}`}>
                     { position[idx] && <Image src={bgImages[idx]} alt={`${key} background image`} fill style={{objectFit: "cover"}} sizes="83vw" /> }
                 </div>
-                <h3 className={`z-10 text-4xl absolute top-[25%]`} key={`carousel-title-${key}`}>
+                <h3 className={`z-10 text-4xl absolute top-[25%]`} data-position={`${idx}`}>
                     {position[idx] && dictionary.Products[key].title}
                 </h3>
-                <p className="w-1/2 z-10 text-justify absolute top-[50%]" key={`carousel-desc-${key}`}>
+                <p className="w-1/2 z-10 text-justify absolute top-[50%]" data-position={`${idx}`}>
                     {position[idx] && dictionary.Products[key].content}
                 </p>
-            </>
+            </div>
         );
     });
 
@@ -134,11 +161,11 @@ export default function Features({ dictionary }) {
     });
 
     return (
-        <div className="w-10/12 h-[32rem] shadow-[inset_2px_5px_20px_#555] bg-white dark:bg-black flex justify-center items-center my-14">
-            <div className="relative flex justify-center items-center w-[96%] shadow-[inset_0px_-10px_25px_#700,_0px_5px_5px_#333] bg-slate-900 h-[94%] overflow-hidden rounded-lg">
+        <div className="w-10/12 h-[32rem] shadow-[inset_2px_5px_20px_#000] bg-white dark:bg-black flex justify-center items-center my-14">
+            <div className="relative flex justify-center items-center w-[96%] shadow-[inset_0px_-10px_25px_#000,_0px_5px_5px_#000] bg-slate-900 h-[94%] overflow-hidden rounded-lg">
 
             {/* Carousel */}
-            <div className="relative w-full h-full flex flex-col justify-center items-center">
+            <div className="relative w-full h-full">
                 {carouselItems}
             </div>
 
