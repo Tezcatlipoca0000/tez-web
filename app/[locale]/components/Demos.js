@@ -1,4 +1,6 @@
-export default function Demos() {
+'use client';
+
+export default function Demos({ dictionary }) {
     return (
         <div className="w-full magicpattern flex justify-center items-center py-16 px-8 my-14">
             <div className="w-full h-full flex flex-wrap justify-evenly items-center">
@@ -7,5 +9,5 @@ export default function Demos() {
                 </div>
             </div>
         </div>
-    );
+    )
 }

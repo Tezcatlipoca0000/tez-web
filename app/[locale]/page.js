@@ -6,9 +6,9 @@ import Prices from './components/Prices';
 import FAQ from './components/FAQ';
 import Demos from './components/Demos';
 
-
 export default async function Home({params}) {
   const dictionary = await getDictionary(params.locale);
+  const showDemos = process.env.DEMOS;
   return (
       <>
         <Header messages={dictionary} />
@@ -28,7 +28,7 @@ export default async function Home({params}) {
           <Features dictionary={dictionary} />
           <Prices dictionary={dictionary} />
           <FAQ dictionary={dictionary} />
-          <Demos dictionary={dictionary} />
+          {showDemos && <Demos dictionary={dictionary} />}
           
         </main>
       </>
