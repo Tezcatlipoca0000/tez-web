@@ -12,7 +12,7 @@ export default function Contact() {
                     <input className="w-full bg-slate-100" />
                 </div>
                 <div className="flex justify-between">
-                    <textarea className="w-[49%] h-72 border bg-slate-100" placeholder="Mensaje" />
+                    <textarea className="w-[49%] h-72 border bg-slate-100" placeholder="Personalized Message" />
                     <div className="relative w-[49%] h-72 border bg-slate-100">
                         <button className="absolute right-5 bottom-5">
                             Add Features

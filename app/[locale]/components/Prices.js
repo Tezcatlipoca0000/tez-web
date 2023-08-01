@@ -280,7 +280,25 @@ export default function Prices({ dictionary }) {
         },
     };
 
-    const options = [<components.customOption />, <components.colorOption />, <components.respOption />, <components.interOption />, <components.seoOption />, <components.accesibOption />, <components.manageOption />, <components.dbOption />, <components.ecomOption />, <components.adsOption />, <components.analOption />, <components.apiOption />, <components.hostOption />, <components.domOption />, <components.writeOption />, <components.imgOption />, <components.maintOption />];
+    const options = [
+        <components.customOption />, 
+        <components.colorOption />, 
+        <components.respOption />, 
+        <components.interOption />, 
+        <components.seoOption />, 
+        <components.accesibOption />, 
+        <components.manageOption />, 
+        <components.dbOption />, 
+        <components.ecomOption />, 
+        <components.adsOption />, 
+        <components.analOption />, 
+        <components.apiOption />, 
+        <components.hostOption />, 
+        <components.domOption />, 
+        <components.writeOption />, 
+        <components.imgOption />, 
+        <components.maintOption />
+    ];
 
     const nameList = [...dictionary.Prices.names];
     
@@ -328,11 +346,11 @@ export default function Prices({ dictionary }) {
                     {bodyRows}
                 </tbody>
                 <tfoot>
-                    <tr>
-                        <td colSpan={2} className="text-center">
+                    <tr className="bg-slate-300 dark:bg-gray-800 dark:border-gray-700">
+                        <td colSpan={2} className="border text-center p-4">
                             Total:
                         </td>
-                        <td>
+                        <td className="border text-center p-4">
                             {typeof(total) === 'number' ? `$${total}` : `$${total[0]} - $${total[1]}`}
                         </td>
                     </tr>
