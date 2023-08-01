@@ -5,6 +5,7 @@ import Features from './components/Features';
 import Prices from './components/Prices';
 import FAQ from './components/FAQ';
 import Demos from './components/Demos';
+import Contact from './components/Contact';
 
 export default async function Home({params}) {
   const dictionary = await getDictionary(params.locale);
@@ -29,6 +30,7 @@ export default async function Home({params}) {
           <Prices dictionary={dictionary} />
           <FAQ dictionary={dictionary} />
           {showDemos && <Demos dictionary={dictionary} />}
+          <Contact dictionary={dictionary} />
           
         </main>
       </>

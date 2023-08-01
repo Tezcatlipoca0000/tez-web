@@ -10,7 +10,7 @@
         "welcome": "Bienvenido",
         "intro": ""
     },
-    "Features": {
+    "Products": {
         "custom": {
             "title": "Diseño Personalizado",
             "content": "Diseños personalizados completamente hechos a la medida para ti y tu negocio"
@@ -58,9 +58,7 @@
         "api": {
             "title": "Integración de API",
             "content": "Integra tu API favorita directamente en tu sitio web"
-        }
-    },
-    "Services": {
+        },
         "host": {
             "title": "Hosting",
             "content": "Manejamos el hosting de tu sitio web"
