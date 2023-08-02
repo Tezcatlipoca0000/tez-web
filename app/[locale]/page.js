@@ -37,3 +37,39 @@ export default async function Home({params}) {
       </>
   )
 }
+
+// TODO
+// Create a Context manager for the Prices component to share the state with the Contact component
+// Example:
+
+/*
+import React, { createContext, useContext } from 'react';
+
+const MyContext = React.createContext(null);
+
+const MyComponent = () => {
+  const [state, setState] = useState(null);
+
+  return (
+    <MyContext.Provider value={state}>
+      <OtherComponent />
+      <AnotherComponent />
+    </MyContext.Provider>
+  );
+};
+
+const OtherComponent = () => {
+  const { state } = useContext(MyContext);
+
+  // Do something with the state.
+};
+
+const AnotherComponent = () => {
+  const { state } = useContext(MyContext);
+
+  // Do something with the state.
+};
+
+export default MyComponent;
+
+*/
