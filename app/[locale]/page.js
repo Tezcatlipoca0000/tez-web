@@ -5,11 +5,10 @@ import Features from './components/Features';
 import Prices from './components/Prices';
 import FAQ from './components/FAQ';
 import Demos from './components/Demos';
-import Contact from './components/Contact';
 
 export default async function Home({params}) {
   const dictionary = await getDictionary(params.locale);
-  const showDemos = process.env.DEMOS;
+  const showDemos = false; //process.env.DEMOS;
   return (
       <>
         <Header messages={dictionary} />
@@ -27,49 +26,12 @@ export default async function Home({params}) {
           </h2>*/}
 
           <Features dictionary={dictionary} />
-          <Prices dictionary={dictionary} />
           <FAQ dictionary={dictionary} />
           {showDemos && <Demos dictionary={dictionary} />}
-          <Contact dictionary={dictionary} />
+          <Prices dictionary={dictionary} />
           
         </main>
         <Footer dictionary={dictionary} />
       </>
   )
 }
-
-// TODO
-// Create a Context manager for the Prices component to share the state with the Contact component
-// Example:
-
-/*
-import React, { createContext, useContext } from 'react';
-
-const MyContext = React.createContext(null);
-
-const MyComponent = () => {
-  const [state, setState] = useState(null);
-
-  return (
-    <MyContext.Provider value={state}>
-      <OtherComponent />
-      <AnotherComponent />
-    </MyContext.Provider>
-  );
-};
-
-const OtherComponent = () => {
-  const { state } = useContext(MyContext);
-
-  // Do something with the state.
-};
-
-const AnotherComponent = () => {
-  const { state } = useContext(MyContext);
-
-  // Do something with the state.
-};
-
-export default MyComponent;
-
-*/
