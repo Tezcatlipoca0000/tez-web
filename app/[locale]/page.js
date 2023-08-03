@@ -26,9 +26,9 @@ export default async function Home({params}) {
           </h2>*/}
 
           <Features dictionary={dictionary} />
+          <Prices dictionary={dictionary} />
           <FAQ dictionary={dictionary} />
           {showDemos && <Demos dictionary={dictionary} />}
-          <Prices dictionary={dictionary} />
           
         </main>
         <Footer dictionary={dictionary} />

@@ -4,6 +4,7 @@ import { useState, useEffect, useContext, createContext } from "react";
 const OptionsContext = createContext();
 
 export default function Prices({ dictionary }) {
+
     const rows = Object.keys(dictionary.Products);
     const keyList = {};
 
@@ -366,54 +367,57 @@ export default function Prices({ dictionary }) {
 }
 
 const Contact = ({ dictionary }) => {
-    let options = useContext(OptionsContext);
-    //console.log('Contact ---> options ---> ', options);
-    const renderedOptions = Object.keys(options).map((key) => {
-        //console.log('Contact ---> renderedOptions ----> ', key);
-        if (key === 'custom') {
+
+    let context = useContext(OptionsContext);
+    
+    const renderedOptions = Object.keys(context).map((key) => {
+       if (context[key] === true) {
             return (
                 <li key={key}>
-                    {dictionary.Products[key].title} - {options[key] == 0 ? `${dictionary.Prices.options[key][0]}` : options[key] == 1 ? `${dictionary.Prices.options[key][1]}` : `${dictionary.Prices.options[key][2]}`}       
+                    {dictionary.Products[key].title}
                 </li>
             );
         }
-        else if (key == true) {
-
-        }
-        else if (key != 'custom' && Number(options[key]) > 0) {
-            console.log('oiiiiiii -->', key)
+        else if (key === 'custom' || (key != 'custom' && (context[key] == '1' || context[key] == '2'))) {
             return (
                 <li key={key}>
-                    {dictionary.Products[key].title} - 
+                    {`${dictionary.Products[key].title} - ${dictionary.Prices.options[key][(Number(context[key]))]}`}
                 </li>
             );
         }
     });
+
+    function toggleMsg(e) {
+        e.preventDefault()
+        let list = document.getElementById('autoList');
+        list.classList.toggle('line-through')
+    }
+
     return (
         <div className="w-10/12 my-14">
             <h2>
-                Contact
+                {dictionary.Contact.title}
             </h2>
             <form className="p-4 bg-slate-600 border">
                 <div className="w-5/12 flex justify-center items-center border mb-6">
                     <label className="w-4/12 text-center">
-                        Email:
+                        {`${dictionary.Contact.email}:`}
                     </label>
                     <input className="w-full bg-slate-100" />
                 </div>
                 <div className="flex justify-between">
                     <textarea className="w-[49%] h-72 border bg-slate-100" placeholder="Personalized Message" />
                     <div className="relative w-[49%] h-72 border bg-slate-100">
-                        <ul>
+                        <ul id="autoList" className="text-gray-500">
                             {renderedOptions}
                         </ul>
-                        <button className="absolute right-5 bottom-5">
-                            Add Features
+                        <button className="absolute right-5 bottom-5 border p-2 bg-sky-200" onClick={toggleMsg}>
+                            Don't Send Automated Message
                         </button>
                     </div>
                 </div>
-                <div className="w-full flex justify-end mr-4">
-                    <button>
+                <div className="w-full flex justify-end mr-4 mt-3">
+                    <button className="border px-2 py-1 bg-sky-200">
                         Send
                     </button>
                 </div>
