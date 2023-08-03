@@ -367,6 +367,28 @@ export default function Prices({ dictionary }) {
 
 const Contact = ({ dictionary }) => {
     let options = useContext(OptionsContext);
+    //console.log('Contact ---> options ---> ', options);
+    const renderedOptions = Object.keys(options).map((key) => {
+        //console.log('Contact ---> renderedOptions ----> ', key);
+        if (key === 'custom') {
+            return (
+                <li key={key}>
+                    {dictionary.Products[key].title} - {options[key] == 0 ? `${dictionary.Prices.options[key][0]}` : options[key] == 1 ? `${dictionary.Prices.options[key][1]}` : `${dictionary.Prices.options[key][2]}`}       
+                </li>
+            );
+        }
+        else if (key == true) {
+
+        }
+        else if (key != 'custom' && Number(options[key]) > 0) {
+            console.log('oiiiiiii -->', key)
+            return (
+                <li key={key}>
+                    {dictionary.Products[key].title} - 
+                </li>
+            );
+        }
+    });
     return (
         <div className="w-10/12 my-14">
             <h2>
@@ -382,6 +404,9 @@ const Contact = ({ dictionary }) => {
                 <div className="flex justify-between">
                     <textarea className="w-[49%] h-72 border bg-slate-100" placeholder="Personalized Message" />
                     <div className="relative w-[49%] h-72 border bg-slate-100">
+                        <ul>
+                            {renderedOptions}
+                        </ul>
                         <button className="absolute right-5 bottom-5">
                             Add Features
                         </button>
