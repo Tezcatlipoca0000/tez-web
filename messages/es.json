@@ -98,6 +98,11 @@
     },
     "Contact": {
         "title": "Contacto",
-        "email": "Email"
+        "email": "Email",
+        "msgPlace": "Mensaje Personalizado",
+        "autoTitle": "Mensaje Generado Automáticamente:",
+        "autoBtnOn": "No Incluir Mensaje Automatizado",
+        "autoBtnOff": "Incluir Mensaje Automatizado",
+        "sendBtn": "Enviar"
     }
 }

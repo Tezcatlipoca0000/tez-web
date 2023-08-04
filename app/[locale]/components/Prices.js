@@ -369,6 +369,7 @@ export default function Prices({ dictionary }) {
 const Contact = ({ dictionary }) => {
 
     let context = useContext(OptionsContext);
+    const [autoBtn, setAutoBtn] = useState(true);
     
     const renderedOptions = Object.keys(context).map((key) => {
        if (context[key] === true) {
@@ -388,9 +389,16 @@ const Contact = ({ dictionary }) => {
     });
 
     function toggleMsg(e) {
-        e.preventDefault()
+        e.preventDefault();
         let list = document.getElementById('autoList');
-        list.classList.toggle('line-through')
+        list.classList.toggle('line-through');
+        setAutoBtn(!autoBtn);
+    }
+
+    function sendMsg(e) {
+        e.preventDefault();
+        console.log('Contact ----> sendMsg ----> event ----> ', e);
+        // e.target.elements.userEmail && userMsg
     }
 
     return (
@@ -398,27 +406,30 @@ const Contact = ({ dictionary }) => {
             <h2>
                 {dictionary.Contact.title}
             </h2>
-            <form className="p-4 bg-slate-600 border">
+            <form className="p-4 bg-slate-600 border" onSubmit={sendMsg}>
                 <div className="w-5/12 flex justify-center items-center border mb-6">
-                    <label className="w-4/12 text-center">
+                    <label className="w-4/12 text-center" htmlFor="userEmail">
                         {`${dictionary.Contact.email}:`}
                     </label>
-                    <input className="w-full bg-slate-100" />
+                    <input id="userEmail" className="w-full bg-slate-100" required name="userEmail" type="email" />
                 </div>
                 <div className="flex justify-between">
-                    <textarea className="w-[49%] h-72 border bg-slate-100" placeholder="Personalized Message" />
+                    <textarea className="w-[49%] h-72 border bg-slate-100" placeholder={`${dictionary.Contact.msgPlace}`} name="userMsg" />
                     <div className="relative w-[49%] h-72 border bg-slate-100">
+                        <div className="w-full bg-slate-400">
+                            {dictionary.Contact.autoTitle}
+                        </div>
                         <ul id="autoList" className="text-gray-500">
                             {renderedOptions}
                         </ul>
                         <button className="absolute right-5 bottom-5 border p-2 bg-sky-200" onClick={toggleMsg}>
-                            Don't Send Automated Message
+                            {autoBtn ? `${dictionary.Contact.autoBtnOn}` : `${dictionary.Contact.autoBtnOff}`}
                         </button>
                     </div>
                 </div>
                 <div className="w-full flex justify-end mr-4 mt-3">
-                    <button className="border px-2 py-1 bg-sky-200">
-                        Send
+                    <button className="border px-2 py-1 bg-sky-200" type="submit">
+                        {dictionary.Contact.sendBtn}
                     </button>
                 </div>
             </form>
