@@ -395,10 +395,26 @@ const Contact = ({ dictionary }) => {
         setAutoBtn(!autoBtn);
     }
 
-    function sendMsg(e) {
+    async function sendMsg(e) {
         e.preventDefault();
-        console.log('Contact ----> sendMsg ----> event ----> ', e);
-        // e.target.elements.userEmail && userMsg
+        let data = {
+            "email": e.target.elements.userEmail,
+            "msg": e.target.elements.userMsg,
+            "list": encodeURIComponent(document.getElementById('autoList').outerHTML)
+        };
+        const res = await fetch('http://localhost:3000/api', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({test: 'ok'}),
+        });
+        //const response = await res.json();
+        console.log(res);
+        //if (!res.ok) {
+        //    console.log('handle sendMsg not response ok ----> ', res);
+        //}
+        //console.log('handle response ok ----> ', res);
     }
 
     return (
