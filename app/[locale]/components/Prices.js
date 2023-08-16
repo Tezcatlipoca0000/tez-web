@@ -398,23 +398,26 @@ const Contact = ({ dictionary }) => {
     async function sendMsg(e) {
         e.preventDefault();
         let data = {
-            "email": e.target.elements.userEmail,
-            "msg": e.target.elements.userMsg,
-            "list": encodeURIComponent(document.getElementById('autoList').outerHTML)
+            "email": e.target.elements.userEmail.value,
+            "msg": e.target.elements.userMsg.value,
+            "list": document.getElementById('autoList').outerHTML
         };
         const res = await fetch('http://localhost:3000/api', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({test: 'ok'}),
+            body: JSON.stringify(data),
         });
-        //const response = await res.json();
         console.log(res);
-        //if (!res.ok) {
-        //    console.log('handle sendMsg not response ok ----> ', res);
-        //}
-        //console.log('handle response ok ----> ', res);
+        if (res.ok) {
+            //alert('Mensaje enviado') // todo: use i18n
+            console.log('response ok!');
+        }
+        else {
+            //alert('Error enviando mensaje'); // todo: use i18n
+            console.log('Prices sendMsg response not ok ------> ', res);
+        }
     }
 
     return (
