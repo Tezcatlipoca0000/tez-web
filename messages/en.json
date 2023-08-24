@@ -103,6 +103,8 @@
         "autoTitle": "Automatic Generated Message:",
         "autoBtnOn": "Don't Include Automated Message",
         "autoBtnOff": "Include Automated Message",
-        "sendBtn": "Send"
+        "sendBtn": "Send",
+        "alertOk": "Message Sent Successfully",
+        "alertNotOk": "Alert! Message Not Sent. Please Try Again."
     }
 }

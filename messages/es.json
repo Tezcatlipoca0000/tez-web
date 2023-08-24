@@ -103,6 +103,8 @@
         "autoTitle": "Mensaje Generado Automáticamente:",
         "autoBtnOn": "No Incluir Mensaje Automatizado",
         "autoBtnOff": "Incluir Mensaje Automatizado",
-        "sendBtn": "Enviar"
+        "sendBtn": "Enviar",
+        "alertOk": "Mensaje Enviado Éxitosamente",
+        "alertNotOk": "¡Alerta! Mensaje No Enviado. Porfavor Intente de Nuevo."
     }
 }

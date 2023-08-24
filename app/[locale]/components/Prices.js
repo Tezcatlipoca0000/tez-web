@@ -368,7 +368,7 @@ export default function Prices({ dictionary }) {
 
 const Contact = ({ dictionary }) => {
 
-    let context = useContext(OptionsContext);
+    let context = useContext(OptionsContext); 
     const [autoBtn, setAutoBtn] = useState(true);
     
     const renderedOptions = Object.keys(context).map((key) => {
@@ -409,13 +409,13 @@ const Contact = ({ dictionary }) => {
             },
             body: JSON.stringify(data),
         });
-        console.log(res);
+        //console.log(res);
         if (res.ok) {
-            //alert('Mensaje enviado') // todo: use i18n
+            alert(dictionary.Contact.alertOk);
             console.log('response ok!');
         }
         else {
-            //alert('Error enviando mensaje'); // todo: use i18n
+            alert(dictionary.Contact.alertNotOk);
             console.log('Prices sendMsg response not ok ------> ', res);
         }
     }
